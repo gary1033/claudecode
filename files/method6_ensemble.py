@@ -22,7 +22,7 @@ from typing import Dict, List
 
 from nlp_common import (
     ACTION_VOCAB, ActionTarget, StepResult,
-    parse_feature_file, split_compound_step,
+    parse_feature_file, run_method_standalone, split_compound_step,
 )
 from method1_regex     import analyse as m1
 from method2_keyword   import analyse as m2
@@ -98,11 +98,4 @@ def analyse(step: str) -> StepResult:
 
 
 if __name__ == '__main__':
-    for fp in sorted(Path('.').glob('*.feature')):
-        tc = parse_feature_file(fp)
-        print(f"\n{'='*60}\n{tc['title']}")
-        for i, step in enumerate(tc['steps'], 1):
-            r = analyse(step)
-            print(f"  {i:2d}. {step}")
-            for p in r.pairs:
-                print(f"      Action={p.action!r:20s} Targets={p.targets}")
+    run_method_standalone('ensemble', analyse)

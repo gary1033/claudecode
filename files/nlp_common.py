@@ -93,6 +93,65 @@ def extract_targets(raw: str) -> List[str]:
     parts = re.split(r',\s*|\s+and\s+', raw)
     return [p.strip() for p in parts if p.strip()]
 
+# ─── Standalone output helper ────────────────────────────────────────────────
+
+def save_method_results(method_id: str, all_cases: List[Dict]) -> str:
+    """
+    Write a JSON file named  results_<method_id>.json  containing the
+    action-target pairs extracted by that method for every step.
+    Returns the output filename.
+    """
+    output = []
+    for tc in all_cases:
+        tc_entry = {
+            'file':  tc['file'],
+            'title': tc['title'],
+            'urls':  tc['urls'],
+            'steps': [],
+        }
+        for sr in tc['steps_results']:
+            tc_entry['steps'].append({
+                'step':  sr['step'],
+                'pairs': [{'action': p.action, 'targets': p.targets}
+                           for p in sr['result'].pairs],
+                'confidence': round(sr['result'].confidence, 3),
+            })
+        output.append(tc_entry)
+
+    out_path = f'results_{method_id}.json'
+    Path(out_path).write_text(
+        json.dumps(output, ensure_ascii=False, indent=2), encoding='utf-8'
+    )
+    return out_path
+
+
+def run_method_standalone(method_id: str, analyse_fn) -> None:
+    """
+    Standard __main__ body for every method file:
+      - reads all .feature files
+      - prints results to stdout
+      - saves results_<method_id>.json
+    """
+    feature_files = sorted(Path('.').glob('*.feature'))
+    all_cases = []
+
+    for fp in feature_files:
+        tc = parse_feature_file(fp)
+        print(f"\n{'='*60}\n{tc['title']}")
+        steps_results = []
+        for i, step in enumerate(tc['steps'], 1):
+            r = analyse_fn(step)
+            steps_results.append({'step': step, 'result': r})
+            print(f"  {i:2d}. {step}")
+            for p in r.pairs:
+                tstr = ', '.join(p.targets) if p.targets else '(none)'
+                print(f"      Action={p.action!r:20s} Targets={tstr}")
+        all_cases.append({**tc, 'steps_results': steps_results})
+
+    out = save_method_results(method_id, all_cases)
+    print(f"\n→ Saved: {out}")
+
+
 # ─── Feature-file parser ──────────────────────────────────────────────────────
 
 _STEP_RE = re.compile(r'^\d+\.\s+(.+)')

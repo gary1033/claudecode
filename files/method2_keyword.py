@@ -19,7 +19,7 @@ from typing import List, Tuple
 
 from nlp_common import (
     ActionTarget, StepResult,
-    extract_targets, parse_feature_file, split_compound_step,
+    extract_targets, parse_feature_file, run_method_standalone, split_compound_step,
 )
 
 _PATTERNS: List[tuple] = [
@@ -64,11 +64,4 @@ def analyse(step: str) -> StepResult:
 
 
 if __name__ == '__main__':
-    for fp in sorted(Path('.').glob('*.feature')):
-        tc = parse_feature_file(fp)
-        print(f"\n{'='*60}\n{tc['title']}")
-        for i, step in enumerate(tc['steps'], 1):
-            r = analyse(step)
-            print(f"  {i:2d}. {step}")
-            for p in r.pairs:
-                print(f"      Action={p.action!r:20s} Targets={p.targets}")
+    run_method_standalone('keyword', analyse)
