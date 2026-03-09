@@ -1,25 +1,28 @@
 # NLP Methods Comparison Report
 
-This document records every NLP approach used in `test_case_reader.py`
-to extract **action** and **target** from `.feature` test steps,
-along with their strengths, weaknesses, and real output examples.
+Records every NLP approach used to extract **action** and **target**
+from `.feature` test steps, with pros, cons, and real output examples.
+
+> Each method also has its own standalone Python file (listed below).
 
 ---
 
 ## Overview
 
-| # | Method | Requires | Speed | Typical Confidence |
-|---|--------|----------|-------|-------------------|
-| 1 | Rule-based Regex | stdlib only | ★★★★★ | 0.80–0.90 |
-| 2 | Keyword + Pattern Heuristics | stdlib only | ★★★★★ | 0.65–0.92 |
-| 3 | NLTK POS Tagging | NLTK | ★★★★☆ | 0.70–0.85 |
-| 4 | NLTK Shallow Chunking | NLTK | ★★★☆☆ | 0.75–0.85 |
-| 5 | spaCy Dependency Parsing | spaCy + model | ★★☆☆☆ | 0.80–0.90 |
-| 6 | Ensemble Voting | all above | ★★☆☆☆ | 0.80–0.95 |
+| # | Method | File | Requires | Speed | Typical Confidence |
+|---|--------|------|----------|-------|-------------------|
+| 1 | Rule-based Regex | `method1_regex.py` | stdlib only | ★★★★★ | 0.80–0.90 |
+| 2 | Keyword + Pattern Heuristics | `method2_keyword.py` | stdlib only | ★★★★★ | 0.65–0.92 |
+| 3 | NLTK POS Tagging | `method3_nltk_pos.py` | NLTK | ★★★★☆ | 0.70–0.85 |
+| 4 | NLTK Shallow Chunking | `method4_nltk_chunk.py` | NLTK | ★★★☆☆ | 0.75–0.85 |
+| 5 | spaCy Dependency Parsing | `method5_spacy_dep.py` | spaCy + model | ★★☆☆☆ | 0.80–0.90 |
+| 6 | Ensemble Voting | `method6_ensemble.py` | all above | ★★☆☆☆ | 0.80–0.95 |
 
 ---
 
 ## Method 1 – Rule-based Regex
+
+**File:** `method1_regex.py`
 
 **Description:** Splits the step text on whitespace. The first token is matched against a predefined `ACTION_VOCAB` set. Quoted strings are preferred as targets; otherwise the noun phrase after stripping leading prepositions is used.
 
@@ -47,7 +50,9 @@ along with their strengths, weaknesses, and real output examples.
 
 ## Method 2 – Keyword + Pattern Heuristics
 
-**Description:** Applies an ordered list of compiled regex patterns, each tuned to a specific BDD phrasing (e.g., "navigate to url", "click on 'X' button", "verify 'X' is visible"). Falls back to a generic VERB + TARGET pattern.
+**File:** `method2_keyword.py`
+
+**Description:** Applies an ordered list of compiled regex patterns, each tuned to a specific BDD phrasing (navigate to url, click on 'X', verify 'X' is visible, …). Falls back to a generic VERB + TARGET pattern.
 
 ### Pros
 - Very precise for the patterns it covers.
@@ -72,6 +77,8 @@ along with their strengths, weaknesses, and real output examples.
 ---
 
 ## Method 3 – NLTK POS Tagging
+
+**File:** `method3_nltk_pos.py`
 
 **Description:** Tokenises with `nltk.word_tokenize` and tags each token using the averaged perceptron tagger. The first `VB*` tag is the action; the contiguous sequence of `NN*`, `JJ`, `DT`, `CD` tokens that follows is collected as the target noun phrase.
 
@@ -99,7 +106,9 @@ along with their strengths, weaknesses, and real output examples.
 
 ## Method 4 – NLTK Shallow Chunking
 
-**Description:** Parses POS-tagged tokens with `nltk.RegexpParser` using a hand-written CFG grammar that defines VP (verb phrases) and NP (noun phrases). The first VP chunk gives the full action phrase; the first NP chunk after it gives the target.
+**File:** `method4_nltk_chunk.py`
+
+**Description:** Parses POS-tagged tokens with `nltk.RegexpParser` using a hand-crafted CFG grammar that defines VP (verb phrases) and NP (noun phrases). The first VP chunk gives the full action phrase; the first NP chunk after it gives the target.
 
 ### Pros
 - Captures multi-word action phrases (e.g., "scroll down to").
@@ -124,6 +133,8 @@ along with their strengths, weaknesses, and real output examples.
 ---
 
 ## Method 5 – spaCy Dependency Parsing
+
+**File:** `method5_spacy_dep.py`
 
 **Description:** Runs spaCy's `en_core_web_sm` neural pipeline on each step. The ROOT token (typically the main verb) is the action. The direct object (`dobj`) or, failing that, the prepositional object (`pobj`) of the root is used as the target, expanded to its full noun-phrase span via `left_edge`/`right_edge`.
 
@@ -151,16 +162,18 @@ along with their strengths, weaknesses, and real output examples.
 
 ## Method 6 – Ensemble Voting
 
-**Description:** Collects the action and target from methods 1–5 and runs confidence-weighted voting: each method's prediction is weighted by its reported confidence score. The candidate with the highest accumulated weight wins. Final confidence is the weighted average plus a small consensus bonus (≤ 1.0).
+**File:** `method6_ensemble.py`
+
+**Description:** Aggregates predictions from methods 1–5 using confidence-weighted voting.  Applies a BDD imperative prior (+2.0 for first-token in ACTION_VOCAB) to prevent auxiliary verbs from winning. Final confidence = weighted average + 0.05 consensus bonus (≤ 1.0).
 
 ### Pros
 - Reduces the impact of individual method errors.
-- Naturally degrades gracefully when some methods are unavailable.
-- Self-documenting: shows how much each method agreed.
+- BDD imperative prior prevents auxiliary verb mis-labelling.
+- Degrades gracefully when optional libraries are unavailable.
 - Generally higher precision than any single method alone.
 
 ### Cons
-- Inherits all methods' shared blind spots (e.g., all prefer quoted strings).
+- Inherits shared blind spots across all constituent methods.
 - Confidence scores are heuristic, not empirically calibrated.
 - Adds latency equal to the sum of all constituent methods.
 - May "average out" a correct minority prediction.
@@ -177,19 +190,10 @@ along with their strengths, weaknesses, and real output examples.
 
 ## Recommendations
 
-- **Production / no-install environment**: Use Method 2 (Keyword Heuristics)
-  as primary, with Method 1 as fallback. Both run on stdlib only.
-
-- **Best single-method accuracy**: Use Method 5 (spaCy) when the
-  `en_core_web_sm` model is available. It understands syntax rather than
-  pattern-matching surface forms.
-
-- **Highest overall precision**: Use Method 6 (Ensemble). It combines
-  the strengths of all other methods and degrades gracefully when
-  optional libraries are missing.
-
-- **Extending coverage**: Add new regex patterns to `_PATTERNS` in
-  Method 2 and new verbs to `ACTION_VOCAB` for Method 1/3/4.
+- **No-install environment**: Method 2 (Keyword Heuristics) as primary, Method 1 as fallback.
+- **Best single-method accuracy**: Method 5 (spaCy) when the model is available.
+- **Highest overall precision**: Method 6 (Ensemble) combining all methods.
+- **Extending coverage**: add patterns to `method2_keyword.py` and verbs to `ACTION_VOCAB` in `nlp_common.py`.
 
 ---
 
