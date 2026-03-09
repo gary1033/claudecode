@@ -1,0 +1,5816 @@
+[
+  {
+    "file": "App1-TestCase1.feature",
+    "urls": [
+      "http://automationexercise.com"
+    ],
+    "title": "Test Case 1: Verify Subscription in home page",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://automationexercise.com'",
+      "Verify that home page is visible successfully",
+      "Scroll down to footer",
+      "Verify text 'SUBSCRIPTION'",
+      "Enter email address in input and click arrow button",
+      "Verify success message 'You have been successfully subscribed!' is visible"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://automationexercise.com'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://automationexercise.com",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Scroll down to footer",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Scroll",
+            "target": "footer",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Scroll",
+            "target": "footer",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "footer",
+            "target": "",
+            "confidence": 0.7,
+            "notes": "tagged=[('Scroll', 'NNP'), ('down', 'RB'), ('to', 'TO'), ('footer', 'VB')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "footer",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'RB', 'TO', 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Scroll",
+            "target": "footer",
+            "confidence": 0.8,
+            "notes": "root=Scroll, dep_labels=['ROOT', 'prt', 'prep', 'pobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Scroll",
+            "target": "footer",
+            "confidence": 0.77,
+            "notes": "votes_action={'scroll': 4.5, 'footer': 1.1}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Scroll",
+          "target": "footer",
+          "confidence": 0.77
+        }
+      },
+      {
+        "step": "Verify text 'SUBSCRIPTION'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Verify', 'NNP'), ('text', 'JJ'), (\"'SUBSCRIPTION\", 'NN'), (\"'\", \"''\")]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'NP', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Verify",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.9,
+            "notes": "root=Verify, dep_labels=['ROOT', 'dobj', 'punct', 'appos', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.95,
+            "notes": "votes_action={'verify': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "SUBSCRIPTION",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Enter email address in input and click arrow button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Enter",
+            "target": "email address in input",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Enter",
+            "target": "email address",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "arrow",
+            "target": "button",
+            "confidence": 0.7,
+            "notes": "tagged=[('Enter', 'NNP'), ('email', 'NN'), ('address', 'NN'), ('in', 'IN'), ('input', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "arrow",
+            "target": "button",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'CC', 'NP', 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Enter",
+            "target": "email address",
+            "confidence": 0.8,
+            "notes": "root=Enter, dep_labels=['ROOT', 'compound', 'dobj', 'prep', 'pobj', 'cc']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Enter",
+            "target": "email address",
+            "confidence": 0.84,
+            "notes": "votes_action={'enter': 4.5, 'arrow': 1.45}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Enter",
+          "target": "email address",
+          "confidence": 0.84
+        }
+      },
+      {
+        "step": "Verify success message 'You have been successfully subscribed!' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "have",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), ('success', 'NN'), ('message', 'NN'), (\"'You\", 'POS'), ('have', 'VBP')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "have",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'POS', 'VP', 'VP', 'JJ', '.']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "subscribed",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.9,
+            "notes": "root=subscribed, dep_labels=['advcl', 'compound', 'dobj', 'punct', 'nsubjpass', 'aux']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 3.8, 'have': 1.7, 'subscribed': 0.9}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "You have been successfully subscribed!",
+          "confidence": 0.93
+        }
+      }
+    ]
+  },
+  {
+    "file": "App1-TestCase2.feature",
+    "urls": [
+      "http://automationexercise.com"
+    ],
+    "title": "Test Case 2: Verify Scroll Up using 'Arrow' button and Scroll Down functionality",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://automationexercise.com'",
+      "Verify that home page is visible successfully",
+      "Scroll down page to bottom",
+      "Verify 'SUBSCRIPTION' is visible",
+      "Click on arrow at bottom right side to move upward",
+      "Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://automationexercise.com'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://automationexercise.com",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Scroll down page to bottom",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Scroll",
+            "target": "page to bottom",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Scroll",
+            "target": "page to bottom",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "bottom",
+            "target": "",
+            "confidence": 0.7,
+            "notes": "tagged=[('Scroll', 'NNP'), ('down', 'RB'), ('page', 'NN'), ('to', 'TO'), ('bottom', 'VB')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "bottom",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'RB', 'NP', 'TO', 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "page",
+            "target": "bottom",
+            "confidence": 0.8,
+            "notes": "root=page, dep_labels=['nmod', 'prt', 'ROOT', 'prep', 'pobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Scroll",
+            "target": "page to bottom",
+            "confidence": 0.77,
+            "notes": "votes_action={'scroll': 3.7, 'bottom': 1.1, 'page': 0.8}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Scroll",
+          "target": "page to bottom",
+          "confidence": 0.77
+        }
+      },
+      {
+        "step": "Verify 'SUBSCRIPTION' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "is",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), (\"'SUBSCRIPTION\", 'NNP'), (\"'\", 'POS'), ('is', 'VBZ'), ('visible', 'JJ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "is",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'POS', 'VP', 'JJ']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'punct', 'dobj', 'punct', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 3.8, 'is': 2.6}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "SUBSCRIPTION",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Click on arrow at bottom right side to move upward",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "arrow at bottom right side to move upward",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "arrow at bottom right side to move upward",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "move",
+            "target": "",
+            "confidence": 0.7,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), ('arrow', 'NN'), ('at', 'IN'), ('bottom', 'JJ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "move upward",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'IN', 'NP', 'TO']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "arrow",
+            "confidence": 0.8,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'pobj', 'prep', 'amod', 'amod']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "arrow at bottom right side to move upward",
+            "confidence": 0.72,
+            "notes": "votes_action={'click': 4.25, 'move': 0.7, 'move upward': 0.4}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "arrow at bottom right side to move upward",
+          "confidence": 0.72
+        }
+      },
+      {
+        "step": "Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Full-Fledged practice website for Automation Engineers",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "Full-Fledged practice website for Automation Engineers",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('page', 'NN'), ('is', 'VBZ'), ('scrolled', 'VBN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "Full-Fledged practice website for Automation Engineers",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'VP', 'CC', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "scrolled",
+            "target": "Full-Fledged practice website for Automation Engineers",
+            "confidence": 0.9,
+            "notes": "root=scrolled, dep_labels=['csubjpass', 'det', 'dobj', 'auxpass', 'ROOT', 'prt']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Full-Fledged practice website for Automation Engineers",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 5.5, 'scrolled': 0.9}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Full-Fledged practice website for Automation Engineers",
+          "confidence": 0.93
+        }
+      }
+    ]
+  },
+  {
+    "file": "App1-TestCase3.feature",
+    "urls": [
+      "http://automationexercise.com",
+      "https://automationexercise.com/login"
+    ],
+    "title": "Test Case 3: Login User with incorrect email and password",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://automationexercise.com'",
+      "Verify that home page is visible successfully",
+      "Click on 'Signup / Login' button",
+      "Verify 'Login to your account' is visible",
+      "Enter incorrect email address and password",
+      "Click 'login' button",
+      "Verify error 'Your email or password is incorrect!' is visible",
+      "Launch browser",
+      "Navigate to url 'http://automationexercise.com'",
+      "Click on 'Signup / Login' button",
+      "Enter incorrect email address and password",
+      "Click 'login' button",
+      "Verify error 'Your email or password is incorrect!' is visible"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://automationexercise.com'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://automationexercise.com",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Click on 'Signup / Login' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), (\"'Signup\", 'NNP'), ('/', 'NNP'), ('Login', 'NNP')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'punct', 'nmod', 'punct', 'poss']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Signup / Login",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify 'Login to your account' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Login to your account",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "Login to your account",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "is",
+            "target": "Login to your account",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), (\"'Login\", 'MD'), ('to', 'TO'), ('your', 'PRP$'), ('account', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "is",
+            "target": "Login to your account",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'MD', 'TO', 'PRP$', 'NP', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "Login to your account",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'punct', 'dobj', 'prep', 'poss', 'pobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Login to your account",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 3.8, 'is': 2.6}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Login to your account",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Enter incorrect email address and password",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Enter",
+            "target": "incorrect email address",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Enter",
+            "target": "incorrect email address",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Enter', 'NNP'), ('incorrect', 'JJ'), ('email', 'NN'), ('address', 'NN'), ('and', 'CC')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'NP', 'CC', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Enter",
+            "target": "incorrect email address and password",
+            "confidence": 0.8,
+            "notes": "root=Enter, dep_labels=['ROOT', 'amod', 'compound', 'dobj', 'cc', 'conj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Enter",
+            "target": "incorrect email address",
+            "confidence": 0.883,
+            "notes": "votes_action={'enter': 4.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Enter",
+          "target": "incorrect email address",
+          "confidence": 0.883
+        }
+      },
+      {
+        "step": "Click 'login' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "login",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "login",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), (\"'login\", 'POS'), (\"'\", \"''\"), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'POS', \"''\", 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "button",
+            "target": "login",
+            "confidence": 0.9,
+            "notes": "root=button, dep_labels=['poss', 'punct', 'poss', 'punct', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "login",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 3.8, 'button': 0.9}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "login",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify error 'Your email or password is incorrect!' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "is",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), ('error', 'NN'), (\"'Your\", 'CD'), ('email', 'NN'), ('or', 'CC')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "is",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'CD', 'NP', 'CC', 'NP', 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'dobj', 'punct', 'poss', 'nsubj', 'cc']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 3.8, 'is': 2.6}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Your email or password is incorrect!",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://automationexercise.com'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://automationexercise.com",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Click on 'Signup / Login' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), (\"'Signup\", 'NNP'), ('/', 'NNP'), ('Login', 'NNP')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'punct', 'nmod', 'punct', 'poss']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Signup / Login",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Enter incorrect email address and password",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Enter",
+            "target": "incorrect email address",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Enter",
+            "target": "incorrect email address",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Enter', 'NNP'), ('incorrect', 'JJ'), ('email', 'NN'), ('address', 'NN'), ('and', 'CC')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'NP', 'CC', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Enter",
+            "target": "incorrect email address and password",
+            "confidence": 0.8,
+            "notes": "root=Enter, dep_labels=['ROOT', 'amod', 'compound', 'dobj', 'cc', 'conj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Enter",
+            "target": "incorrect email address",
+            "confidence": 0.883,
+            "notes": "votes_action={'enter': 4.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Enter",
+          "target": "incorrect email address",
+          "confidence": 0.883
+        }
+      },
+      {
+        "step": "Click 'login' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "login",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "login",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), (\"'login\", 'POS'), (\"'\", \"''\"), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'POS', \"''\", 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "button",
+            "target": "login",
+            "confidence": 0.9,
+            "notes": "root=button, dep_labels=['poss', 'punct', 'poss', 'punct', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "login",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 3.8, 'button': 0.9}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "login",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify error 'Your email or password is incorrect!' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "is",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), ('error', 'NN'), (\"'Your\", 'CD'), ('email', 'NN'), ('or', 'CC')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "is",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'CD', 'NP', 'CC', 'NP', 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'dobj', 'punct', 'poss', 'nsubj', 'cc']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Your email or password is incorrect!",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 3.8, 'is': 2.6}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Your email or password is incorrect!",
+          "confidence": 0.93
+        }
+      }
+    ]
+  },
+  {
+    "file": "App1-TestCase4.feature",
+    "urls": [
+      "http://automationexercise.com",
+      "https://automationexercise.com/view_cart"
+    ],
+    "title": "Test Case 4: Verify Subscription in Cart page",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://automationexercise.com'",
+      "Verify that home page is visible successfully",
+      "Click 'Cart' button",
+      "Scroll down to footer",
+      "Verify text 'SUBSCRIPTION'",
+      "Enter email address in input and click arrow button",
+      "Verify success message 'You have been successfully subscribed!' is visible"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://automationexercise.com'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://automationexercise.com",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Click 'Cart' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Cart",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Cart",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), (\"'Cart\", 'NNP'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Cart",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'punct', 'nmod', 'punct', 'dobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Cart",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Cart",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Scroll down to footer",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Scroll",
+            "target": "footer",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Scroll",
+            "target": "footer",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "footer",
+            "target": "",
+            "confidence": 0.7,
+            "notes": "tagged=[('Scroll', 'NNP'), ('down', 'RB'), ('to', 'TO'), ('footer', 'VB')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "footer",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'RB', 'TO', 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Scroll",
+            "target": "footer",
+            "confidence": 0.8,
+            "notes": "root=Scroll, dep_labels=['ROOT', 'prt', 'prep', 'pobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Scroll",
+            "target": "footer",
+            "confidence": 0.77,
+            "notes": "votes_action={'scroll': 4.5, 'footer': 1.1}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Scroll",
+          "target": "footer",
+          "confidence": 0.77
+        }
+      },
+      {
+        "step": "Verify text 'SUBSCRIPTION'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Verify', 'NNP'), ('text', 'JJ'), (\"'SUBSCRIPTION\", 'NN'), (\"'\", \"''\")]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'NP', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Verify",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.9,
+            "notes": "root=Verify, dep_labels=['ROOT', 'dobj', 'punct', 'appos', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "SUBSCRIPTION",
+            "confidence": 0.95,
+            "notes": "votes_action={'verify': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "SUBSCRIPTION",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Enter email address in input and click arrow button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Enter",
+            "target": "email address in input",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Enter",
+            "target": "email address",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "arrow",
+            "target": "button",
+            "confidence": 0.7,
+            "notes": "tagged=[('Enter', 'NNP'), ('email', 'NN'), ('address', 'NN'), ('in', 'IN'), ('input', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "arrow",
+            "target": "button",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'CC', 'NP', 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Enter",
+            "target": "email address",
+            "confidence": 0.8,
+            "notes": "root=Enter, dep_labels=['ROOT', 'compound', 'dobj', 'prep', 'pobj', 'cc']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Enter",
+            "target": "email address",
+            "confidence": 0.84,
+            "notes": "votes_action={'enter': 4.5, 'arrow': 1.45}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Enter",
+          "target": "email address",
+          "confidence": 0.84
+        }
+      },
+      {
+        "step": "Verify success message 'You have been successfully subscribed!' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "have",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), ('success', 'NN'), ('message', 'NN'), (\"'You\", 'POS'), ('have', 'VBP')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "have",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'POS', 'VP', 'VP', 'JJ', '.']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "subscribed",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.9,
+            "notes": "root=subscribed, dep_labels=['advcl', 'compound', 'dobj', 'punct', 'nsubjpass', 'aux']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "You have been successfully subscribed!",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 3.8, 'have': 1.7, 'subscribed': 0.9}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "You have been successfully subscribed!",
+          "confidence": 0.93
+        }
+      }
+    ]
+  },
+  {
+    "file": "App1-TestCase5.feature",
+    "urls": [
+      "http://automationexercise.com",
+      "https://automationexercise.com/login",
+      "https://automationexercise.com/signup"
+    ],
+    "title": "Test Case 5: Register User",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://automationexercise.com'",
+      "Verify that home page is visible successfully",
+      "Click on 'Signup / Login' button",
+      "Verify 'New User Signup!' is visible",
+      "Enter name and email address",
+      "Click 'Signup' button",
+      "Verify that 'ENTER ACCOUNT INFORMATION' is visible",
+      "Fill details: Title, Name, Email, Password, Date of birth",
+      "Select checkbox 'Sign up for our newsletter!'",
+      "Select checkbox 'Receive special offers from our partners!'",
+      "Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number",
+      "Click 'Create Account button'",
+      "Verify that 'ACCOUNT CREATED!' is visible",
+      "Click 'Continue' button",
+      "Verify that 'Logged in as username' is visible",
+      "Click 'Delete Account' button",
+      "Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://automationexercise.com'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://automationexercise.com",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Click on 'Signup / Login' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), (\"'Signup\", 'NNP'), ('/', 'NNP'), ('Login', 'NNP')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'punct', 'nmod', 'punct', 'poss']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Signup / Login",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Signup / Login",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify 'New User Signup!' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "New User Signup!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "New User Signup!",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "is",
+            "target": "New User Signup!",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), (\"'New\", 'POS'), ('User', 'NNP'), ('Signup', 'NNP'), ('!', '.')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "is",
+            "target": "New User Signup!",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'POS', 'NP', '.', \"''\", 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Verify",
+            "target": "New User Signup!",
+            "confidence": 0.9,
+            "notes": "root=Verify, dep_labels=['ROOT', 'punct', 'compound', 'compound', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "New User Signup!",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 4.7, 'is': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "New User Signup!",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Enter name and email address",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Enter",
+            "target": "name",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Enter",
+            "target": "name",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Enter', 'NNP'), ('name', 'NN'), ('and', 'CC'), ('email', 'NN'), ('address', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'CC', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Enter",
+            "target": "name and email address",
+            "confidence": 0.8,
+            "notes": "root=Enter, dep_labels=['ROOT', 'dobj', 'cc', 'compound', 'conj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Enter",
+            "target": "name",
+            "confidence": 0.883,
+            "notes": "votes_action={'enter': 4.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Enter",
+          "target": "name",
+          "confidence": 0.883
+        }
+      },
+      {
+        "step": "Click 'Signup' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Signup",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Signup",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), (\"'Signup\", 'NNP'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Signup",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'punct', 'poss', 'punct', 'dobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Signup",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Signup",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify that 'ENTER ACCOUNT INFORMATION' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "ENTER ACCOUNT INFORMATION",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "ENTER ACCOUNT INFORMATION",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "ENTER ACCOUNT INFORMATION",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'IN'), (\"'ENTER\", 'JJ'), ('ACCOUNT', 'NNP'), ('INFORMATION', 'NNP')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify that",
+            "target": "ENTER ACCOUNT INFORMATION",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['VP', 'NP', 'POS', 'VP', 'JJ']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "ENTER ACCOUNT INFORMATION",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'nsubj', 'punct', 'ccomp', 'compound', 'dobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "ENTER ACCOUNT INFORMATION",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 4.65, 'verify that': 0.85, 'is': 0.9}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "ENTER ACCOUNT INFORMATION",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Fill details: Title, Name, Email, Password, Date of birth",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Fill",
+            "target": "details: Title, Name, Email, Password, Date of birth",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Fill",
+            "target": "details: Title, Name, Email, Password, Date of birth",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Fill', 'NNP'), ('details', 'NNS'), (':', ':'), ('Title', 'NN'), (',', ',')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', ':', 'NP', ',', 'NP', ',']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "details",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=details, dep_labels=['compound', 'ROOT', 'punct', 'appos', 'punct', 'appos']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Fill",
+            "target": "details: Title, Name, Email, Password, Date of birth",
+            "confidence": 0.7,
+            "notes": "votes_action={'fill': 3.45, 'details': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Fill",
+          "target": "details: Title, Name, Email, Password, Date of birth",
+          "confidence": 0.7
+        }
+      },
+      {
+        "step": "Select checkbox 'Sign up for our newsletter!'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Select",
+            "target": "Sign up for our newsletter!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Select",
+            "target": "checkbox Sign up for our newsletter!",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "'Sign",
+            "target": "Sign up for our newsletter!",
+            "confidence": 0.85,
+            "notes": "tagged=[('Select', 'NNP'), ('checkbox', 'NN'), (\"'Sign\", 'VBZ'), ('up', 'RP'), ('for', 'IN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "'Sign up",
+            "target": "Sign up for our newsletter!",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'VP', 'IN', 'PRP$', 'NP', '.']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Sign",
+            "target": "Sign up for our newsletter!",
+            "confidence": 0.9,
+            "notes": "root=Sign, dep_labels=['compound', 'dep', 'punct', 'ROOT', 'prt', 'prep']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Select",
+            "target": "Sign up for our newsletter!",
+            "confidence": 0.88,
+            "notes": "votes_action={'select': 3.55, \"'sign\": 0.85, \"'sign up\": 0.85, 'sign': 0.9}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Select",
+          "target": "Sign up for our newsletter!",
+          "confidence": 0.88
+        }
+      },
+      {
+        "step": "Select checkbox 'Receive special offers from our partners!'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Select",
+            "target": "Receive special offers from our partners!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Select",
+            "target": "checkbox Receive special offers from our partners!",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Select', 'NNP'), ('checkbox', 'NN'), (\"'Receive\", 'CD'), ('special', 'JJ'), ('offers', 'NNS')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'CD', 'NP', 'IN', 'PRP$', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Receive",
+            "target": "Receive special offers from our partners!",
+            "confidence": 0.9,
+            "notes": "root=Receive, dep_labels=['compound', 'dep', 'punct', 'ROOT', 'amod', 'dobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Select",
+            "target": "Receive special offers from our partners!",
+            "confidence": 0.867,
+            "notes": "votes_action={'select': 3.55, 'receive': 0.9}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Select",
+          "target": "Receive special offers from our partners!",
+          "confidence": 0.867
+        }
+      },
+      {
+        "step": "Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Fill",
+            "target": "details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Fill",
+            "target": "details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Fill', 'NNP'), ('details', 'NNS'), (':', ':'), ('First', 'NNP'), ('name', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', ':', 'NP', ',', 'NP', ',']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "details",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=details, dep_labels=['compound', 'ROOT', 'punct', 'amod', 'appos', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Fill",
+            "target": "details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number",
+            "confidence": 0.7,
+            "notes": "votes_action={'fill': 3.45, 'details': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Fill",
+          "target": "details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number",
+          "confidence": 0.7
+        }
+      },
+      {
+        "step": "Click 'Create Account button'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Create Account button",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Create Account button",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), (\"'Create\", 'NNP'), ('Account', 'NNP'), ('button', 'NN'), (\"'\", \"''\")]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Create Account button",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'punct', 'xcomp', 'compound', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Create Account button",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Create Account button",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify that 'ACCOUNT CREATED!' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "ACCOUNT CREATED!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "ACCOUNT CREATED!",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "ACCOUNT CREATED!",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), (\"'ACCOUNT\", 'CD'), ('CREATED', 'NNP'), ('!', '.')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "ACCOUNT CREATED!",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['VP', 'DT', 'CD', 'NP', '.', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "ACCOUNT CREATED!",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'nsubjpass', 'aux', 'auxpass', 'ccomp', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "ACCOUNT CREATED!",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 5.5, 'is': 0.9}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "ACCOUNT CREATED!",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Click 'Continue' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Continue",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Continue",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), (\"'Continue\", 'NNP'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Continue",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'punct', 'nmod', 'punct', 'dobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Continue",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Continue",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify that 'Logged in as username' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Logged in as username",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "Logged in as username",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "Logged in as username",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), (\"'Logged\", 'VBD'), ('in', 'IN'), ('as', 'IN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "Logged in as username",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['VP', 'DT', 'VP', 'IN', 'NP', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "Logged in as username",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'nsubj', 'punct', 'ccomp', 'prt', 'prep']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Logged in as username",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 5.5, 'is': 0.9}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Logged in as username",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Click 'Delete Account' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Delete Account",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Delete Account",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), (\"'Delete\", 'NNP'), ('Account', 'NNP'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Delete Account",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'punct', 'compound', 'poss', 'case', 'dobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Delete Account",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Delete Account",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "ACCOUNT DELETED!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "ACCOUNT DELETED!",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "ACCOUNT DELETED!",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), (\"'ACCOUNT\", 'CD'), ('DELETED', 'NNP'), ('!', '.')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "ACCOUNT DELETED!",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['VP', 'DT', 'CD', 'NP', '.', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "ACCOUNT DELETED!",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'nsubjpass', 'punct', 'nsubj', 'ccomp', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "ACCOUNT DELETED!",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 5.5, 'is': 0.9}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "ACCOUNT DELETED!",
+          "confidence": 0.93
+        }
+      }
+    ]
+  },
+  {
+    "file": "App1-TestCase6.feature",
+    "urls": [
+      "http://automationexercise.com",
+      "https://automationexercise.com/contact_us",
+      "http://automationexercise.com"
+    ],
+    "title": "Test Case 6: Contact Us Form",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://automationexercise.com'",
+      "Verify that home page is visible successfully",
+      "Click on 'Contact Us' button",
+      "Verify 'GET IN TOUCH' is visible",
+      "Enter name, email, subject and message",
+      "Upload file",
+      "Click 'Submit' button",
+      "Click OK button",
+      "Verify success message 'Success! Your details have been submitted successfully.' is visible",
+      "Click 'Home' button and verify that landed to home page successfully"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://automationexercise.com'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://automationexercise.com",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://automationexercise.com",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://automationexercise.com",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Click on 'Contact Us' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Contact Us",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Contact Us",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), (\"'Contact\", 'NNP'), ('Us', 'NNP'), (\"'\", 'POS')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Contact Us",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'punct', 'compound', 'poss', 'case']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Contact Us",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Contact Us",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify 'GET IN TOUCH' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "GET IN TOUCH",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "GET IN TOUCH",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "is",
+            "target": "GET IN TOUCH",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), (\"'GET\", \"''\"), ('IN', 'NNP'), ('TOUCH', 'NNP'), (\"'\", 'POS')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "is",
+            "target": "GET IN TOUCH",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', \"''\", 'NP', 'POS', 'VP', 'JJ']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "GET IN TOUCH",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'punct', 'xcomp', 'prep', 'pobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "GET IN TOUCH",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 3.8, 'is': 2.6}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "GET IN TOUCH",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Enter name, email, subject and message",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Enter",
+            "target": "name, email, subject",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Enter",
+            "target": "name, email, subject",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Enter', 'NNP'), ('name', 'NN'), (',', ','), ('email', 'NN'), (',', ',')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', ',', 'NP', ',', 'JJ', 'CC']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Enter",
+            "target": "name, email, subject and message",
+            "confidence": 0.8,
+            "notes": "root=Enter, dep_labels=['ROOT', 'dobj', 'punct', 'conj', 'punct', 'conj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Enter",
+            "target": "name, email, subject",
+            "confidence": 0.883,
+            "notes": "votes_action={'enter': 4.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Enter",
+          "target": "name, email, subject",
+          "confidence": 0.883
+        }
+      },
+      {
+        "step": "Upload file",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Upload",
+            "target": "file",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Upload",
+            "target": "file",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Upload', 'NN'), ('file', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "file",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=file, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Upload",
+            "target": "file",
+            "confidence": 0.7,
+            "notes": "votes_action={'upload': 3.45, 'file': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Upload",
+          "target": "file",
+          "confidence": 0.7
+        }
+      },
+      {
+        "step": "Click 'Submit' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Submit",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Submit",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), (\"'Submit\", 'NNP'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Submit",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'punct', 'poss', 'punct', 'dobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Submit",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Submit",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Click OK button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "OK button",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "OK button",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), ('OK', 'NNP'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "OK button",
+            "confidence": 0.8,
+            "notes": "root=Click, dep_labels=['ROOT', 'compound', 'dobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "OK button",
+            "confidence": 0.8,
+            "notes": "votes_action={'click': 4.25}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "OK button",
+          "confidence": 0.8
+        }
+      },
+      {
+        "step": "Verify success message 'Success! Your details have been submitted successfully.' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Success! Your details have been submitted successfully.",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "Success! Your details have been submitted successfully.",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "have",
+            "target": "Success! Your details have been submitted successfully.",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), ('success', 'NN'), ('message', 'NN'), (\"'Success\", 'POS'), ('!', '.')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "have",
+            "target": "Success! Your details have been submitted successfully.",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'POS', '.', 'PRP$', 'NP', 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Verify",
+            "target": "Success! Your details have been submitted successfully.",
+            "confidence": 0.9,
+            "notes": "root=Verify, dep_labels=['ROOT', 'compound', 'dobj', 'punct', 'appos', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Success! Your details have been submitted successfully.",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 4.7, 'have': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Success! Your details have been submitted successfully.",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Click 'Home' button and verify that landed to home page successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Home",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Home",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "verify",
+            "target": "Home",
+            "confidence": 0.85,
+            "notes": "tagged=[('Click', 'NNP'), (\"'Home\", 'NNP'), (\"'\", 'POS'), ('button', 'NN'), ('and', 'CC')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "verify",
+            "target": "Home",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'POS', 'NP', 'CC', 'VP', 'DT']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Home",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'punct', 'nmod', 'punct', 'dobj', 'cc']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Home",
+            "confidence": 0.93,
+            "notes": "votes_action={'click': 4.7, 'verify': 2.0}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Home",
+          "confidence": 0.93
+        }
+      }
+    ]
+  },
+  {
+    "file": "App2-TestCase1.feature",
+    "urls": [
+      "http://localhost:5173/"
+    ],
+    "title": "Test Case 1: Successfully Search for a Movie",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://localhost:5173/'",
+      "Verify that home page is visible successfully",
+      "Click on the search input labeled 'Digite o nome do filme'",
+      "Enter movie name 'Interestellar'",
+      "Verify that the movie card titled 'Interstellar' is visible"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://localhost:5173/'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://localhost:5173/",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Click on the search input labeled 'Digite o nome do filme'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Digite o nome do filme",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "the search input labeled Digite o nome do filme",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "labeled",
+            "target": "Digite o nome do filme",
+            "confidence": 0.85,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), ('the', 'DT'), ('search', 'NN'), ('input', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "labeled",
+            "target": "Digite o nome do filme",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'VP', 'CD', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Digite o nome do filme",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'det', 'compound', 'pobj', 'acl']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Digite o nome do filme",
+            "confidence": 0.88,
+            "notes": "votes_action={'click': 4.45, 'labeled': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Digite o nome do filme",
+          "confidence": 0.88
+        }
+      },
+      {
+        "step": "Enter movie name 'Interestellar'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Enter",
+            "target": "Interestellar",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Enter",
+            "target": "movie name Interestellar",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Enter', 'NNP'), ('movie', 'NN'), ('name', 'NN'), (\"'Interestellar\", 'POS'), (\"'\", \"''\")]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'POS', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Enter",
+            "target": "Interestellar",
+            "confidence": 0.9,
+            "notes": "root=Enter, dep_labels=['ROOT', 'compound', 'dobj', 'punct', 'appos', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Enter",
+            "target": "Interestellar",
+            "confidence": 0.867,
+            "notes": "votes_action={'enter': 4.45}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Enter",
+          "target": "Interestellar",
+          "confidence": 0.867
+        }
+      },
+      {
+        "step": "Verify that the movie card titled 'Interstellar' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Interstellar",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "the movie card titled Interstellar",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "Interstellar",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'IN'), ('the', 'DT'), ('movie', 'NN'), ('card', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify that",
+            "target": "Interstellar",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', \"''\", 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Verify",
+            "target": "Interstellar",
+            "confidence": 0.9,
+            "notes": "root=Verify, dep_labels=['ROOT', 'mark', 'det', 'compound', 'nsubj', 'acl']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Interstellar",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 5.55, 'verify that': 0.85}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Interstellar",
+          "confidence": 0.93
+        }
+      }
+    ]
+  },
+  {
+    "file": "App2-TestCase2.feature",
+    "urls": [
+      "http://localhost:5173/"
+    ],
+    "title": "Test Case 6: Successfully Filter Movies by State",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://localhost:5173/'",
+      "Verify that home page is visible successfully",
+      "Click on the select dropdown labeled 'Estado'",
+      "Select the option 'AM' from the list",
+      "Verify that the movie card titled 'Joker' is visible"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://localhost:5173/'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://localhost:5173/",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Click on the select dropdown labeled 'Estado'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Estado",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "the select dropdown labeled Estado",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "labeled",
+            "target": "Estado",
+            "confidence": 0.85,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), ('the', 'DT'), ('select', 'JJ'), ('dropdown', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "labeled",
+            "target": "Estado",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'VP', 'CD', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Estado",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'det', 'amod', 'pobj', 'advcl']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Estado",
+            "confidence": 0.88,
+            "notes": "votes_action={'click': 4.45, 'labeled': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Estado",
+          "confidence": 0.88
+        }
+      },
+      {
+        "step": "Select the option 'AM' from the list",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Select",
+            "target": "AM",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Select",
+            "target": "the option AM from the list",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Select",
+            "target": "AM",
+            "confidence": 0.85,
+            "notes": "tagged=[('Select', 'VB'), ('the', 'DT'), ('option', 'NN'), (\"'AM\", 'POS'), (\"'\", \"''\")]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Select",
+            "target": "AM",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['VP', 'NP', 'POS', \"''\", 'IN', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Select",
+            "target": "AM",
+            "confidence": 0.9,
+            "notes": "root=Select, dep_labels=['ROOT', 'det', 'dobj', 'punct', 'appos', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Select",
+            "target": "AM",
+            "confidence": 0.88,
+            "notes": "votes_action={'select': 6.15}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Select",
+          "target": "AM",
+          "confidence": 0.88
+        }
+      },
+      {
+        "step": "Verify that the movie card titled 'Joker' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Joker",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "the movie card titled Joker",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "Joker",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'IN'), ('the', 'DT'), ('movie', 'NN'), ('card', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify that",
+            "target": "Joker",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'NP', 'POS', 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Verify",
+            "target": "Joker",
+            "confidence": 0.9,
+            "notes": "root=Verify, dep_labels=['ROOT', 'mark', 'det', 'compound', 'nsubj', 'acl']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Joker",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 5.55, 'verify that': 0.85}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Joker",
+          "confidence": 0.93
+        }
+      }
+    ]
+  },
+  {
+    "file": "App2-TestCase3.feature",
+    "urls": [
+      "http://localhost:5173/",
+      "http://localhost:5173/LogIn"
+    ],
+    "title": "Test Case 3: Unsuccessfully Login with Incorrect Credentials",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://localhost:5173/'",
+      "Verify that home page is visible successfully",
+      "Click on 'LogIn' button",
+      "Verify 'Log In' is visible",
+      "Enter incorrect email and password",
+      "Click 'Log In' button",
+      "Verify error message 'User not found!' is visible"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://localhost:5173/'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://localhost:5173/",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Click on 'LogIn' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "LogIn",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "LogIn",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), (\"'LogIn\", 'NNP'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "LogIn",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'punct', 'poss', 'punct', 'pobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "LogIn",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "LogIn",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify 'Log In' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Log In",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "Log In",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "is",
+            "target": "Log In",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), (\"'Log\", \"''\"), ('In', 'IN'), (\"'\", \"''\"), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "is",
+            "target": "Log In",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', \"''\", 'IN', \"''\", 'VP', 'JJ']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "Log In",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'punct', 'compound', 'dep', 'punct', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Log In",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 3.8, 'is': 2.6}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Log In",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Enter incorrect email and password",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Enter",
+            "target": "incorrect email",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Enter",
+            "target": "incorrect email",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Enter', 'NNP'), ('incorrect', 'JJ'), ('email', 'NN'), ('and', 'CC'), ('password', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'NP', 'CC', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Enter",
+            "target": "incorrect email and password",
+            "confidence": 0.8,
+            "notes": "root=Enter, dep_labels=['ROOT', 'amod', 'dobj', 'cc', 'conj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Enter",
+            "target": "incorrect email",
+            "confidence": 0.883,
+            "notes": "votes_action={'enter': 4.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Enter",
+          "target": "incorrect email",
+          "confidence": 0.883
+        }
+      },
+      {
+        "step": "Click 'Log In' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Log In",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Log In",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), (\"'Log\", \"''\"), ('In', 'IN'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', \"''\", 'IN', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Log In",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'punct', 'compound', 'poss', 'punct', 'dobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Log In",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Log In",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify error message 'User not found!' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "User not found!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "error message User not found!",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "found",
+            "target": "User not found!",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), ('error', 'NN'), ('message', 'NN'), (\"'User\", 'MD'), ('not', 'RB')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "found",
+            "target": "User not found!",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'MD', 'RB', 'VP', '.', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Verify",
+            "target": "User not found!",
+            "confidence": 0.9,
+            "notes": "root=Verify, dep_labels=['ROOT', 'compound', 'dobj', 'punct', 'nsubj', 'neg']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "User not found!",
+            "confidence": 0.88,
+            "notes": "votes_action={'verify': 4.45, 'found': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "User not found!",
+          "confidence": 0.88
+        }
+      }
+    ]
+  },
+  {
+    "file": "App2-TestCase4.feature",
+    "urls": [
+      "http://localhost:5173/",
+      "http://localhost:5173/MovieSession/"
+    ],
+    "title": "Test Case 4: Successfully Navigate to Movie Details Page",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://localhost:5173/'",
+      "Verify that home page is visible successfully",
+      "Click on the movie card titled 'Barbie'",
+      "Verify that the movie details page for 'Barbie' is visible"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://localhost:5173/'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://localhost:5173/",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Click on the movie card titled 'Barbie'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Barbie",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "the movie card titled Barbie",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "titled",
+            "target": "Barbie",
+            "confidence": 0.85,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), ('the', 'DT'), ('movie', 'NN'), ('card', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "titled",
+            "target": "Barbie",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'VP', 'CD', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Barbie",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'det', 'compound', 'pobj', 'acl']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Barbie",
+            "confidence": 0.88,
+            "notes": "votes_action={'click': 4.45, 'titled': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Barbie",
+          "confidence": 0.88
+        }
+      },
+      {
+        "step": "Verify that the movie details page for 'Barbie' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Barbie",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "the movie details page for Barbie",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "Barbie",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'IN'), ('the', 'DT'), ('movie', 'NN'), ('details', 'NNS')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify that",
+            "target": "Barbie",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['VP', 'NP', 'IN', 'NP', 'POS', 'VP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Verify",
+            "target": "Barbie",
+            "confidence": 0.9,
+            "notes": "root=Verify, dep_labels=['ROOT', 'mark', 'det', 'compound', 'compound', 'nsubj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Barbie",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 5.55, 'verify that': 0.85}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Barbie",
+          "confidence": 0.93
+        }
+      }
+    ]
+  },
+  {
+    "file": "App2-TestCase5.feature",
+    "urls": [
+      "http://localhost:5173/",
+      "http://localhost:5173/LogIn",
+      "http://localhost:5173/SignUp"
+    ],
+    "title": "Test Case 5: Successfully Register a New User",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://localhost:5173/'",
+      "Verify that home page is visible successfully",
+      "Click on 'LogIn' button",
+      "Verify 'Log In' is visible",
+      "Click on 'SignUp' button",
+      "Verify 'Sign Up' is visible",
+      "Enter first name, last name, email, confirm email, password, and confirm password",
+      "Click 'Sign Up' button",
+      "Verify success message 'Registration completed successfully!' is visible"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://localhost:5173/'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://localhost:5173/",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Click on 'LogIn' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "LogIn",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "LogIn",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), (\"'LogIn\", 'NNP'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "LogIn",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'punct', 'poss', 'punct', 'pobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "LogIn",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "LogIn",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify 'Log In' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Log In",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "Log In",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "is",
+            "target": "Log In",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), (\"'Log\", \"''\"), ('In', 'IN'), (\"'\", \"''\"), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "is",
+            "target": "Log In",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', \"''\", 'IN', \"''\", 'VP', 'JJ']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "Log In",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'punct', 'compound', 'dep', 'punct', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Log In",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 3.8, 'is': 2.6}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Log In",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Click on 'SignUp' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "SignUp",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "SignUp",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), (\"'SignUp\", 'NNP'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "SignUp",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'punct', 'poss', 'punct', 'pobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "SignUp",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "SignUp",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify 'Sign Up' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Sign Up",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "Sign Up",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "is",
+            "target": "Sign Up",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), (\"'Sign\", 'POS'), ('Up', 'NNP'), (\"'\", 'POS'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "is",
+            "target": "Sign Up",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'POS', 'NP', 'POS', 'VP', 'JJ']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "Sign Up",
+            "confidence": 0.9,
+            "notes": "root=is, dep_labels=['csubj', 'punct', 'compound', 'prt', 'punct', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Sign Up",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 3.8, 'is': 2.6}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Sign Up",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Enter first name, last name, email, confirm email, password, and confirm password",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Enter",
+            "target": "first name, last name, email, confirm email, password,",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Enter",
+            "target": "first name, last name, email, confirm email, password,",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Enter', 'NNP'), ('first', 'RB'), ('name', 'NN'), (',', ','), ('last', 'JJ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'RB', 'NP', ',', 'NP', ',']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Enter",
+            "target": "first name, last name, email,",
+            "confidence": 0.8,
+            "notes": "root=Enter, dep_labels=['ROOT', 'amod', 'dobj', 'punct', 'amod', 'appos']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Enter",
+            "target": "first name, last name, email, confirm email, password,",
+            "confidence": 0.883,
+            "notes": "votes_action={'enter': 4.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Enter",
+          "target": "first name, last name, email, confirm email, password,",
+          "confidence": 0.883
+        }
+      },
+      {
+        "step": "Click 'Sign Up' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Sign Up",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Sign Up",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), (\"'Sign\", 'POS'), ('Up', 'NNP'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'POS', 'NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Sign Up",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'punct', 'xcomp', 'prt', 'punct', 'dobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Sign Up",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Sign Up",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify success message 'Registration completed successfully!' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Registration completed successfully!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "Registration completed successfully!",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "completed",
+            "target": "Registration completed successfully!",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), ('success', 'NN'), ('message', 'NN'), (\"'Registration\", 'NN'), ('completed', 'VBN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "completed successfully",
+            "target": "Registration completed successfully!",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'VP', '.', \"''\", 'VP', 'JJ']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Verify",
+            "target": "Registration completed successfully!",
+            "confidence": 0.9,
+            "notes": "root=Verify, dep_labels=['ROOT', 'compound', 'dobj', 'punct', 'nsubj', 'acl']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Registration completed successfully!",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 4.7, 'completed': 0.85, 'completed successfully': 0.85}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Registration completed successfully!",
+          "confidence": 0.93
+        }
+      }
+    ]
+  },
+  {
+    "file": "App2-TestCase6.feature",
+    "urls": [
+      "http://localhost:5173/",
+      "http://localhost:5173/CreateMovie"
+    ],
+    "title": "Test Case 6: Successfully Register a New Movie",
+    "steps": [
+      "Launch browser",
+      "Navigate to url 'http://localhost:5173/'",
+      "Verify that home page is visible successfully",
+      "Click on 'CreateMovie' button",
+      "Fill in all required fields: url cartaz, nome, descrição, faixa etária, diretor(a), escritor(a), ator(a), gênero, and data de lançamento",
+      "Click 'Criar' button",
+      "Verify success message 'Film Created Successfully!' is visible"
+    ],
+    "analysed_steps": [
+      {
+        "step": "Launch browser",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Launch', 'NNP'), ('browser', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "browser",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=browser, dep_labels=['compound', 'ROOT']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Launch",
+            "target": "browser",
+            "confidence": 0.783,
+            "notes": "votes_action={'launch': 3.7, 'browser': 0.5}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Launch",
+          "target": "browser",
+          "confidence": 0.783
+        }
+      },
+      {
+        "step": "Navigate to url 'http://localhost:5173/'",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "tagged=[('Navigate', 'NNP'), ('to', 'TO'), ('url', 'VB'), (\"'http\", 'NNS'), (':', ':')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "url",
+            "target": "http://localhost:5173/",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'TO', 'VP', 'NP', ':', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.9,
+            "notes": "root=Navigate, dep_labels=['ROOT', 'aux', 'advcl', 'punct', 'dobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Navigate",
+            "target": "http://localhost:5173/",
+            "confidence": 0.93,
+            "notes": "votes_action={'navigate': 4.7, 'url': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Navigate",
+          "target": "http://localhost:5173/",
+          "confidence": 0.93
+        }
+      },
+      {
+        "step": "Verify that home page is visible successfully",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.7,
+            "notes": "tagged=[('Verify', 'VB'), ('that', 'DT'), ('home', 'NN'), ('page', 'NN'), ('is', 'VBZ')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "Verify",
+            "target": "that home page",
+            "confidence": 0.75,
+            "notes": "chunk_labels=['VP', 'NP', 'VP', 'JJ', 'RB']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "is",
+            "target": "",
+            "confidence": 0.5,
+            "notes": "root=is, dep_labels=['csubj', 'det', 'compound', 'dobj', 'ROOT', 'acomp']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "home page",
+            "confidence": 0.78,
+            "notes": "votes_action={'verify': 5.15, 'is': 0.5}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "home page",
+          "confidence": 0.78
+        }
+      },
+      {
+        "step": "Click on 'CreateMovie' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "CreateMovie",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "CreateMovie",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), ('on', 'IN'), (\"'CreateMovie\", 'NNP'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "CreateMovie",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'prep', 'punct', 'poss', 'case', 'pobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "CreateMovie",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "CreateMovie",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Fill in all required fields: url cartaz, nome, descrição, faixa etária, diretor(a), escritor(a), ator(a), gênero, and data de lançamento",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Fill",
+            "target": "all required fields: url cartaz, nome, descrição, faixa etária, diretor(a), escritor(a), ator(a), gênero,",
+            "confidence": 0.8,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Fill",
+            "target": "all required fields: url cartaz, nome, descrição, faixa etária, diretor(a), escritor(a), ator(a), gênero, and data de lançamento",
+            "confidence": 0.65,
+            "notes": "pattern=generic"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Fill', 'NNP'), ('in', 'IN'), ('all', 'DT'), ('required', 'JJ'), ('fields', 'NNS')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'IN', 'NP', ':', 'NP', ',']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Fill",
+            "target": "all required fields",
+            "confidence": 0.8,
+            "notes": "root=Fill, dep_labels=['ROOT', 'prep', 'det', 'amod', 'pobj', 'punct']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Fill",
+            "target": "all required fields: url cartaz, nome, descrição, faixa etária, diretor(a), escritor(a), ator(a), gênero,",
+            "confidence": 0.8,
+            "notes": "votes_action={'fill': 4.25}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Fill",
+          "target": "all required fields: url cartaz, nome, descrição, faixa etária, diretor(a), escritor(a), ator(a), gênero,",
+          "confidence": 0.8
+        }
+      },
+      {
+        "step": "Click 'Criar' button",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Click",
+            "target": "Criar",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Click",
+            "target": "Criar",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "",
+            "target": "",
+            "confidence": 0.2,
+            "notes": "tagged=[('Click', 'NNP'), (\"'Criar\", 'NNP'), (\"'\", 'POS'), ('button', 'NN')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "",
+            "target": "",
+            "confidence": 0.4,
+            "notes": "chunk_labels=['NP', 'POS', 'NP']"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Click",
+            "target": "Criar",
+            "confidence": 0.9,
+            "notes": "root=Click, dep_labels=['ROOT', 'punct', 'nmod', 'punct', 'dobj']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Click",
+            "target": "Criar",
+            "confidence": 0.95,
+            "notes": "votes_action={'click': 4.7}, n_methods=3"
+          }
+        ],
+        "best": {
+          "action": "Click",
+          "target": "Criar",
+          "confidence": 0.95
+        }
+      },
+      {
+        "step": "Verify success message 'Film Created Successfully!' is visible",
+        "analyses": [
+          {
+            "method": "regex",
+            "action": "Verify",
+            "target": "Film Created Successfully!",
+            "confidence": 0.9,
+            "notes": "verb_in_vocab=True"
+          },
+          {
+            "method": "keyword",
+            "action": "Verify",
+            "target": "Film Created Successfully!",
+            "confidence": 0.9,
+            "notes": "pattern=named"
+          },
+          {
+            "method": "nltk_pos",
+            "action": "is",
+            "target": "Film Created Successfully!",
+            "confidence": 0.85,
+            "notes": "tagged=[('Verify', 'NNP'), ('success', 'NN'), ('message', 'NN'), (\"'Film\", 'POS'), ('Created', 'NNP')]"
+          },
+          {
+            "method": "nltk_chunk",
+            "action": "is",
+            "target": "Film Created Successfully!",
+            "confidence": 0.85,
+            "notes": "chunk_labels=['NP', 'POS', 'NP', 'RB', '.', \"''\"]"
+          },
+          {
+            "method": "spacy_dep",
+            "action": "Verify",
+            "target": "Film Created Successfully!",
+            "confidence": 0.9,
+            "notes": "root=Verify, dep_labels=['ROOT', 'compound', 'dobj', 'punct', 'nsubj', 'acl']"
+          },
+          {
+            "method": "ensemble",
+            "action": "Verify",
+            "target": "Film Created Successfully!",
+            "confidence": 0.93,
+            "notes": "votes_action={'verify': 4.7, 'is': 1.7}, n_methods=5"
+          }
+        ],
+        "best": {
+          "action": "Verify",
+          "target": "Film Created Successfully!",
+          "confidence": 0.93
+        }
+      }
+    ]
+  }
+]
