@@ -3,11 +3,11 @@
 method4_nltk_chunk.py — NLTK Shallow Chunking
 
 Parses POS-tagged tokens with nltk.RegexpParser using a hand-crafted CFG
-grammar that defines VP (verb phrases) and NP (noun phrases).
-The first VP chunk gives the action phrase; the first NP after it gives the target.
-Quoted strings override the NP target when present.
+grammar. Calls split_compound_step() first for compound steps.
+For each sub-step: the first VP chunk gives the action; the first NP gives
+the primary target.  Subsequent NPs joined by CC are also collected.
 
-Pros: captures multi-word verb phrases, transparent grammar, no GPU needed.
+Pros: captures multi-word verb phrases, transparent grammar.
 Cons: grammar needs manual tuning, misses long-distance dependencies.
 
 Run standalone:
@@ -16,8 +16,12 @@ Run standalone:
 
 import re
 from pathlib import Path
+from typing import List, Tuple
 
-from nlp_common import NLTK_AVAILABLE, StepAnalysis, parse_feature_file
+from nlp_common import (
+    NLTK_AVAILABLE, ActionTarget, StepResult,
+    parse_feature_file, split_compound_step,
+)
 
 if NLTK_AVAILABLE:
     import nltk
@@ -28,16 +32,16 @@ _GRAMMAR = r"""
 """
 
 
-def analyse(step: str) -> StepAnalysis:
+def _analyse_single(sub: str) -> Tuple[str, List[str], float, str]:
     if not NLTK_AVAILABLE:
-        return StepAnalysis('nltk_chunk', '', '', 0.0, 'NLTK not available')
+        return '', [], 0.0, 'NLTK not available'
 
-    tokens = nltk.word_tokenize(step)
+    tokens = nltk.word_tokenize(sub)
     tagged = nltk.pos_tag(tokens)
     tree = nltk.RegexpParser(_GRAMMAR).parse(tagged)
 
     action = ''
-    target = ''
+    targets: List[str] = []
     vp_found = False
 
     for subtree in tree:
@@ -47,24 +51,35 @@ def analyse(step: str) -> StepAnalysis:
             if label == 'VP' and not vp_found:
                 action = words
                 vp_found = True
-            elif label == 'NP' and vp_found and not target:
-                target = words
+            elif label == 'NP' and vp_found:
+                targets.append(words)           # collect all NPs after VP
         else:
             word, tag = subtree
             if tag.startswith('VB') and not action:
                 action = word
                 vp_found = True
 
-    quoted = re.findall(r"['\"]([^'\"]+)['\"]", step)
+    quoted = re.findall(r"['\"]([^'\"]+)['\"]", sub)
     if quoted and action:
-        target = quoted[0]
+        targets = [quoted[0]]
         confidence = 0.85
     else:
-        confidence = 0.75 if (action and target) else 0.40
+        confidence = 0.75 if (action and targets) else 0.40
 
     chunk_labels = [s.label() if hasattr(s, 'label') else s[1] for s in tree]
-    return StepAnalysis('nltk_chunk', action, target, confidence,
-                        f"chunk_labels={chunk_labels[:6]}")
+    return action, targets, confidence, f"chunks={chunk_labels[:6]}"
+
+
+def analyse(step: str) -> StepResult:
+    sub_steps = split_compound_step(step)
+    pairs: List[ActionTarget] = []
+    total_conf = 0.0
+    for sub in sub_steps:
+        action, targets, conf, _ = _analyse_single(sub)
+        pairs.append(ActionTarget(action, targets))
+        total_conf += conf
+    return StepResult('nltk_chunk', pairs, round(total_conf / len(sub_steps), 3),
+                      f"sub_steps={len(sub_steps)}")
 
 
 if __name__ == '__main__':
@@ -74,4 +89,5 @@ if __name__ == '__main__':
         for i, step in enumerate(tc['steps'], 1):
             r = analyse(step)
             print(f"  {i:2d}. {step}")
-            print(f"      Action={r.action!r:20s} Target={r.target!r}")
+            for p in r.pairs:
+                print(f"      Action={p.action!r:20s} Targets={p.targets}")

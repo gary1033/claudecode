@@ -2,13 +2,14 @@
 """
 method3_nltk_pos.py — NLTK POS Tagging
 
-Tokenises with nltk.word_tokenize and tags each token using the averaged
-perceptron tagger.  The first VB* tag is the action; the contiguous sequence
-of NN*, JJ, DT, CD tokens that follows is collected as the target noun phrase.
-Quoted strings override the NP target when present.
+Tokenises with nltk.word_tokenize and tags each token.  Calls
+split_compound_step() first so compound steps are handled separately.
+For each sub-step: the first VB* tag is the action; contiguous NN*/JJ/DT/CD
+tokens after it form the target NP.  Quoted strings override the NP.
+Coordinated objects (via CC tags) are also collected for multi-target steps.
 
-Pros: linguistically grounded, handles morphological variants, small footprint.
-Cons: domain words may be mis-tagged, NP heuristic breaks for complex NPs.
+Pros: linguistically grounded, handles morphological variants.
+Cons: domain words may be mis-tagged, capitalised verbs tagged as NNP.
 
 Run standalone:
     python3 method3_nltk_pos.py
@@ -16,23 +17,28 @@ Run standalone:
 
 import re
 from pathlib import Path
-from typing import List
+from typing import List, Tuple
 
-from nlp_common import NLTK_AVAILABLE, StepAnalysis, parse_feature_file
+from nlp_common import (
+    NLTK_AVAILABLE, ActionTarget, StepResult,
+    extract_targets, parse_feature_file, split_compound_step,
+)
 
 if NLTK_AVAILABLE:
     import nltk
 
+_NP_TAGS = {'NN', 'NNS', 'NNP', 'NNPS', 'JJ', 'JJR', 'JJS', 'DT', 'CD'}
 
-def analyse(step: str) -> StepAnalysis:
+
+def _analyse_single(sub: str) -> Tuple[str, List[str], float, str]:
     if not NLTK_AVAILABLE:
-        return StepAnalysis('nltk_pos', '', '', 0.0, 'NLTK not available')
+        return '', [], 0.0, 'NLTK not available'
 
-    tokens = nltk.word_tokenize(step)
+    tokens = nltk.word_tokenize(sub)
     tagged = nltk.pos_tag(tokens)
 
     action = ''
-    target_tokens: List[str] = []
+    np_words: List[str] = []
     found_verb = False
     in_np = False
 
@@ -42,24 +48,38 @@ def analyse(step: str) -> StepAnalysis:
                 action = word
                 found_verb = True
         else:
-            if tag in ('NN', 'NNS', 'NNP', 'NNPS', 'JJ', 'JJR', 'JJS', 'DT', 'CD'):
-                target_tokens.append(word)
+            if tag in _NP_TAGS:
+                np_words.append(word)
                 in_np = True
+            elif tag == 'CC' and in_np:       # coordinating conjunction: "and"
+                np_words.append(word)         # keep for splitting later
             elif tag in ('IN', 'TO') and in_np:
-                target_tokens.append(word)
+                np_words.append(word)
             elif in_np:
                 break
 
-    quoted = re.findall(r"['\"]([^'\"]+)['\"]", step)
+    quoted = re.findall(r"['\"]([^'\"]+)['\"]", sub)
     if quoted and action:
-        target = quoted[0]
+        targets = [quoted[0]]
         confidence = 0.85
     else:
-        target = ' '.join(target_tokens)
+        raw = ' '.join(np_words)
+        targets = extract_targets(raw)
         confidence = 0.70 if action else 0.20
 
-    return StepAnalysis('nltk_pos', action, target, confidence,
-                        f"tagged={[(w, t) for w, t in tagged[:5]]}")
+    return action, targets, confidence, f"tagged={[(w, t) for w, t in tagged[:4]]}"
+
+
+def analyse(step: str) -> StepResult:
+    sub_steps = split_compound_step(step)
+    pairs: List[ActionTarget] = []
+    total_conf = 0.0
+    for sub in sub_steps:
+        action, targets, conf, _ = _analyse_single(sub)
+        pairs.append(ActionTarget(action, targets))
+        total_conf += conf
+    return StepResult('nltk_pos', pairs, round(total_conf / len(sub_steps), 3),
+                      f"sub_steps={len(sub_steps)}")
 
 
 if __name__ == '__main__':
@@ -69,4 +89,5 @@ if __name__ == '__main__':
         for i, step in enumerate(tc['steps'], 1):
             r = analyse(step)
             print(f"  {i:2d}. {step}")
-            print(f"      Action={r.action!r:20s} Target={r.target!r}")
+            for p in r.pairs:
+                print(f"      Action={p.action!r:20s} Targets={p.targets}")

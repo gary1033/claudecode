@@ -1,0 +1,288 @@
+[
+  {
+    "file": "App1-TestCase1.feature",
+    "title": "Test Case 1: Verify Subscription in home page",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://automationexercise.com'",
+       "pairs": [{"action": "Navigate", "targets": ["http://automationexercise.com"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Scroll down to footer",
+       "pairs": [{"action": "Scroll", "targets": ["footer"]}]},
+      {"step": "Verify text 'SUBSCRIPTION'",
+       "pairs": [{"action": "Verify", "targets": ["SUBSCRIPTION"]}]},
+      {"step": "Enter email address in input and click arrow button",
+       "pairs": [
+         {"action": "Enter", "targets": ["email address"]},
+         {"action": "Click", "targets": ["arrow button"]}
+       ]},
+      {"step": "Verify success message 'You have been successfully subscribed!' is visible",
+       "pairs": [{"action": "Verify", "targets": ["You have been successfully subscribed!"]}]}
+    ]
+  },
+  {
+    "file": "App1-TestCase2.feature",
+    "title": "Test Case 2: Verify Scroll Up using 'Arrow' button and Scroll Down functionality",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://automationexercise.com'",
+       "pairs": [{"action": "Navigate", "targets": ["http://automationexercise.com"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Scroll down page to bottom",
+       "pairs": [{"action": "Scroll", "targets": ["page"]}]},
+      {"step": "Verify 'SUBSCRIPTION' is visible",
+       "pairs": [{"action": "Verify", "targets": ["SUBSCRIPTION"]}]},
+      {"step": "Click on arrow at bottom right side to move upward",
+       "pairs": [{"action": "Click", "targets": ["arrow"]}]},
+      {"step": "Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen",
+       "pairs": [{"action": "Verify", "targets": ["Full-Fledged practice website for Automation Engineers"]}]}
+    ]
+  },
+  {
+    "file": "App1-TestCase3.feature",
+    "title": "Test Case 3: Login User with incorrect email and password",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://automationexercise.com'",
+       "pairs": [{"action": "Navigate", "targets": ["http://automationexercise.com"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Click on 'Signup / Login' button",
+       "pairs": [{"action": "Click", "targets": ["Signup / Login"]}]},
+      {"step": "Verify 'Login to your account' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Login to your account"]}]},
+      {"step": "Enter incorrect email address and password",
+       "pairs": [{"action": "Enter", "targets": ["email address", "password"]}]},
+      {"step": "Click 'login' button",
+       "pairs": [{"action": "Click", "targets": ["login"]}]},
+      {"step": "Verify error 'Your email or password is incorrect!' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Your email or password is incorrect!"]}]}
+    ]
+  },
+  {
+    "file": "App1-TestCase4.feature",
+    "title": "Test Case 4: Verify Subscription in Cart page",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://automationexercise.com'",
+       "pairs": [{"action": "Navigate", "targets": ["http://automationexercise.com"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Click 'Cart' button",
+       "pairs": [{"action": "Click", "targets": ["Cart"]}]},
+      {"step": "Scroll down to footer",
+       "pairs": [{"action": "Scroll", "targets": ["footer"]}]},
+      {"step": "Verify text 'SUBSCRIPTION'",
+       "pairs": [{"action": "Verify", "targets": ["SUBSCRIPTION"]}]},
+      {"step": "Enter email address in input and click arrow button",
+       "pairs": [
+         {"action": "Enter", "targets": ["email address"]},
+         {"action": "Click", "targets": ["arrow button"]}
+       ]},
+      {"step": "Verify success message 'You have been successfully subscribed!' is visible",
+       "pairs": [{"action": "Verify", "targets": ["You have been successfully subscribed!"]}]}
+    ]
+  },
+  {
+    "file": "App1-TestCase5.feature",
+    "title": "Test Case 5: Register User",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://automationexercise.com'",
+       "pairs": [{"action": "Navigate", "targets": ["http://automationexercise.com"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Click on 'Signup / Login' button",
+       "pairs": [{"action": "Click", "targets": ["Signup / Login"]}]},
+      {"step": "Verify 'New User Signup!' is visible",
+       "pairs": [{"action": "Verify", "targets": ["New User Signup!"]}]},
+      {"step": "Enter name and email address",
+       "pairs": [{"action": "Enter", "targets": ["name", "email address"]}]},
+      {"step": "Click 'Signup' button",
+       "pairs": [{"action": "Click", "targets": ["Signup"]}]},
+      {"step": "Verify that 'ENTER ACCOUNT INFORMATION' is visible",
+       "pairs": [{"action": "Verify", "targets": ["ENTER ACCOUNT INFORMATION"]}]},
+      {"step": "Fill details: Title, Name, Email, Password, Date of birth",
+       "pairs": [{"action": "Fill", "targets": ["Title", "Name", "Email", "Password", "Date of birth"]}]},
+      {"step": "Select checkbox 'Sign up for our newsletter!'",
+       "pairs": [{"action": "Select", "targets": ["Sign up for our newsletter!"]}]},
+      {"step": "Select checkbox 'Receive special offers from our partners!'",
+       "pairs": [{"action": "Select", "targets": ["Receive special offers from our partners!"]}]},
+      {"step": "Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number",
+       "pairs": [{"action": "Fill", "targets": ["First name", "Last name", "Company", "Address", "Address2", "Country", "State", "City", "Zipcode", "Mobile Number"]}]},
+      {"step": "Click 'Create Account button'",
+       "pairs": [{"action": "Click", "targets": ["Create Account button"]}]},
+      {"step": "Verify that 'ACCOUNT CREATED!' is visible",
+       "pairs": [{"action": "Verify", "targets": ["ACCOUNT CREATED!"]}]},
+      {"step": "Click 'Continue' button",
+       "pairs": [{"action": "Click", "targets": ["Continue"]}]},
+      {"step": "Verify that 'Logged in as username' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Logged in as username"]}]},
+      {"step": "Click 'Delete Account' button",
+       "pairs": [{"action": "Click", "targets": ["Delete Account"]}]},
+      {"step": "Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button",
+       "pairs": [
+         {"action": "Verify", "targets": ["ACCOUNT DELETED!"]},
+         {"action": "Click",  "targets": ["Continue"]}
+       ]}
+    ]
+  },
+  {
+    "file": "App1-TestCase6.feature",
+    "title": "Test Case 6: Contact Us Form",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://automationexercise.com'",
+       "pairs": [{"action": "Navigate", "targets": ["http://automationexercise.com"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Click on 'Contact Us' button",
+       "pairs": [{"action": "Click", "targets": ["Contact Us"]}]},
+      {"step": "Verify 'GET IN TOUCH' is visible",
+       "pairs": [{"action": "Verify", "targets": ["GET IN TOUCH"]}]},
+      {"step": "Enter name, email, subject and message",
+       "pairs": [{"action": "Enter", "targets": ["name", "email", "subject", "message"]}]},
+      {"step": "Upload file",
+       "pairs": [{"action": "Upload", "targets": ["file"]}]},
+      {"step": "Click 'Submit' button",
+       "pairs": [{"action": "Click", "targets": ["Submit"]}]},
+      {"step": "Click OK button",
+       "pairs": [{"action": "Click", "targets": ["OK"]}]},
+      {"step": "Verify success message 'Success! Your details have been submitted successfully.' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Success! Your details have been submitted successfully."]}]},
+      {"step": "Click 'Home' button and verify that landed to home page successfully",
+       "pairs": [
+         {"action": "Click",  "targets": ["Home"]},
+         {"action": "Verify", "targets": ["home page"]}
+       ]}
+    ]
+  },
+  {
+    "file": "App2-TestCase1.feature",
+    "title": "Test Case 1: Successfully Search for a Movie",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://localhost:5173/'",
+       "pairs": [{"action": "Navigate", "targets": ["http://localhost:5173/"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Click on the search input labeled 'Digite o nome do filme'",
+       "pairs": [{"action": "Click", "targets": ["Digite o nome do filme"]}]},
+      {"step": "Enter movie name 'Interestellar'",
+       "pairs": [{"action": "Enter", "targets": ["Interestellar"]}]},
+      {"step": "Verify that the movie card titled 'Interstellar' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Interstellar"]}]}
+    ]
+  },
+  {
+    "file": "App2-TestCase2.feature",
+    "title": "Test Case 6: Successfully Filter Movies by State",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://localhost:5173/'",
+       "pairs": [{"action": "Navigate", "targets": ["http://localhost:5173/"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Click on the select dropdown labeled 'Estado'",
+       "pairs": [{"action": "Click", "targets": ["Estado"]}]},
+      {"step": "Select the option 'AM' from the list",
+       "pairs": [{"action": "Select", "targets": ["AM"]}]},
+      {"step": "Verify that the movie card titled 'Joker' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Joker"]}]}
+    ]
+  },
+  {
+    "file": "App2-TestCase3.feature",
+    "title": "Test Case 3: Unsuccessfully Login with Incorrect Credentials",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://localhost:5173/'",
+       "pairs": [{"action": "Navigate", "targets": ["http://localhost:5173/"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Click on 'LogIn' button",
+       "pairs": [{"action": "Click", "targets": ["LogIn"]}]},
+      {"step": "Verify 'Log In' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Log In"]}]},
+      {"step": "Enter incorrect email and password",
+       "pairs": [{"action": "Enter", "targets": ["email", "password"]}]},
+      {"step": "Click 'Log In' button",
+       "pairs": [{"action": "Click", "targets": ["Log In"]}]},
+      {"step": "Verify error message 'User not found!' is visible",
+       "pairs": [{"action": "Verify", "targets": ["User not found!"]}]}
+    ]
+  },
+  {
+    "file": "App2-TestCase4.feature",
+    "title": "Test Case 4: Successfully Navigate to Movie Details Page",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://localhost:5173/'",
+       "pairs": [{"action": "Navigate", "targets": ["http://localhost:5173/"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Click on the movie card titled 'Barbie'",
+       "pairs": [{"action": "Click", "targets": ["Barbie"]}]},
+      {"step": "Verify that the movie details page for 'Barbie' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Barbie"]}]}
+    ]
+  },
+  {
+    "file": "App2-TestCase5.feature",
+    "title": "Test Case 5: Successfully Register a New User",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://localhost:5173/'",
+       "pairs": [{"action": "Navigate", "targets": ["http://localhost:5173/"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Click on 'LogIn' button",
+       "pairs": [{"action": "Click", "targets": ["LogIn"]}]},
+      {"step": "Verify 'Log In' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Log In"]}]},
+      {"step": "Click on 'SignUp' button",
+       "pairs": [{"action": "Click", "targets": ["SignUp"]}]},
+      {"step": "Verify 'Sign Up' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Sign Up"]}]},
+      {"step": "Enter first name, last name, email, confirm email, password, and confirm password",
+       "pairs": [{"action": "Enter", "targets": ["first name", "last name", "email", "confirm email", "password", "confirm password"]}]},
+      {"step": "Click 'Sign Up' button",
+       "pairs": [{"action": "Click", "targets": ["Sign Up"]}]},
+      {"step": "Verify success message 'Registration completed successfully!' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Registration completed successfully!"]}]}
+    ]
+  },
+  {
+    "file": "App2-TestCase6.feature",
+    "title": "Test Case 6: Successfully Register a New Movie",
+    "steps": [
+      {"step": "Launch browser",
+       "pairs": [{"action": "Launch", "targets": ["browser"]}]},
+      {"step": "Navigate to url 'http://localhost:5173/'",
+       "pairs": [{"action": "Navigate", "targets": ["http://localhost:5173/"]}]},
+      {"step": "Verify that home page is visible successfully",
+       "pairs": [{"action": "Verify", "targets": ["home page"]}]},
+      {"step": "Click on 'CreateMovie' button",
+       "pairs": [{"action": "Click", "targets": ["CreateMovie"]}]},
+      {"step": "Fill in all required fields: url cartaz, nome, descrição, faixa etária, diretor(a), escritor(a), ator(a), gênero, and data de lançamento",
+       "pairs": [{"action": "Fill", "targets": ["url cartaz", "nome", "descrição", "faixa etária", "diretor(a)", "escritor(a)", "ator(a)", "gênero", "data de lançamento"]}]},
+      {"step": "Click 'Criar' button",
+       "pairs": [{"action": "Click", "targets": ["Criar"]}]},
+      {"step": "Verify success message 'Film Created Successfully!' is visible",
+       "pairs": [{"action": "Verify", "targets": ["Film Created Successfully!"]}]}
+    ]
+  }
+]

@@ -1,13 +1,14 @@
 """
 nlp_common.py
 
-Shared types, vocabulary, and feature-file parser used by all method modules.
+Shared types, vocabulary, compound-step splitter, and feature-file parser
+used by all method modules.
 """
 
 import json
 import re
 from pathlib import Path
-from typing import Dict, List, NamedTuple
+from typing import Dict, List, NamedTuple, Tuple
 
 # ─── NLP library detection ────────────────────────────────────────────────────
 
@@ -46,43 +47,97 @@ ACTION_VOCAB = {
 
 SKIP_WORDS = {'on', 'to', 'in', 'at', 'into', 'with', 'that', 'down', 'the', 'a', 'an'}
 
-# ─── Result container ─────────────────────────────────────────────────────────
+# ─── Result types ─────────────────────────────────────────────────────────────
 
-class StepAnalysis(NamedTuple):
+class ActionTarget(NamedTuple):
+    """One (action, targets) pair extracted from a step or sub-step."""
+    action:  str
+    targets: List[str]   # may have multiple targets for compound objects
+
+
+class StepResult(NamedTuple):
+    """Full result for one step: possibly multiple action-target pairs."""
     method:     str
-    action:     str
-    target:     str
-    confidence: float   # 0.0–1.0
+    pairs:      List[ActionTarget]
+    confidence: float    # 0.0–1.0
     notes:      str
+
+# ─── Compound-step splitter ───────────────────────────────────────────────────
+
+# Matches " and VERB" where VERB is a known action (e.g., "…and click…")
+# Uses a lookahead so the verb itself is kept at the start of the next part.
+_ACTION_ALT = '|'.join(re.escape(v) for v in sorted(ACTION_VOCAB, key=len, reverse=True))
+_COMPOUND_RE = re.compile(rf'\s+and\s+(?=(?:{_ACTION_ALT})\b)', re.I)
+
+
+def split_compound_step(step: str) -> List[str]:
+    """
+    Split "Enter email and click arrow" → ["Enter email", "click arrow"].
+    Does NOT split "Enter name and email" because "email" is not in ACTION_VOCAB.
+    """
+    parts = _COMPOUND_RE.split(step)
+    return [p.strip() for p in parts if p.strip()]
+
+
+def extract_targets(raw: str) -> List[str]:
+    """
+    Split compound-object strings into a list of individual targets.
+      "email address"               → ["email address"]
+      "name and email address"      → ["name", "email address"]
+      "name, email, subject"        → ["name", "email", "subject"]
+      "Title, Name, Email, Password"→ ["Title", "Name", "Email", "Password"]
+    Quoted targets (already clean single strings) pass through unchanged.
+    """
+    if not raw:
+        return []
+    parts = re.split(r',\s*|\s+and\s+', raw)
+    return [p.strip() for p in parts if p.strip()]
 
 # ─── Feature-file parser ──────────────────────────────────────────────────────
 
 _STEP_RE = re.compile(r'^\d+\.\s+(.+)')
 
+
 def parse_feature_file(path: Path) -> Dict:
     """
     Extracts URLs, title, and numbered steps from a .feature file.
-    Ignores any embedded JSON blocks (present in some files).
+    Ignores embedded JSON blocks and duplicate step sections.
     """
     raw = path.read_text(encoding='utf-8')
     text = raw.split('{')[0] if '{' in raw else raw
 
-    urls: List[str] = []
+    urls:  List[str] = []
     title = ''
     steps: List[str] = []
+    seen_title = False
 
     for line in text.splitlines():
         line = line.strip()
         if line.startswith('urls = '):
-            try:
-                urls = json.loads(line[len('urls = '):])
-            except json.JSONDecodeError:
-                urls = re.findall(r'https?://[^\s\'"]+', line)
+            if not seen_title:          # only the first URL block
+                try:
+                    urls = json.loads(line[len('urls = '):])
+                except json.JSONDecodeError:
+                    urls = re.findall(r'https?://[^\s\'"]+', line)
         elif line.startswith('Test Case'):
-            title = line
+            if not seen_title:
+                title = line
+                seen_title = True
         else:
             m = _STEP_RE.match(line)
             if m:
                 steps.append(m.group(1).strip().rstrip())
 
-    return {'file': path.name, 'urls': urls, 'title': title, 'steps': steps}
+    # Deduplicate consecutive identical steps (TestCase3 has the list twice)
+    deduped: List[str] = []
+    for s in steps:
+        if not deduped or s != deduped[-1]:
+            deduped.append(s)
+    # If the second half is a repeat of the first, keep only the first half
+    n = len(deduped)
+    if n % 2 == 0:
+        half = deduped[:n // 2]
+        if half == deduped[n // 2:]:
+            deduped = half
+
+    return {'file': path.name, 'urls': urls, 'title': title, 'steps': deduped}
