@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>測試案例 POS 分析 SVG</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2d3436;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .summary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .test-case {
+            margin-bottom: 40px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .test-case-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .test-case-header:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        .test-case-content {
+            padding: 20px;
+        }
+        .step {
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .step-header {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            font-weight: bold;
+            color: #2d3436;
+        }
+        .step-svg {
+            padding: 15px;
+            background: white;
+            text-align: center;
+        }
+        .step-svg img, .step-svg object {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .legend-color {
+            width: 30px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .stat-label {
+            color: #636e72;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 測試案例 POS 分析結果</h1>
+        
+        <div class="summary">
+            <h2>📊 統計資訊</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">測試案例檔案</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">107</div>
+                    <div class="stat-label">測試步驟</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">107</div>
+                    <div class="stat-label">SVG 圖表</div>
+                </div>
+            </div>
+            
+            <div class="legend">
+                <h3 style="width: 100%; margin: 0 0 10px 0;">詞性標籤說明：</h3>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ff6b6b;"></div>
+                    <span>VERB - 動詞</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #4ecdc4;"></div>
+                    <span>NOUN - 名詞</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #95e1d3;"></div>
+                    <span>PREP - 介係詞</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f9ca24;"></div>
+                    <span>DET - 限定詞</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #fd79a8;"></div>
+                    <span>AUX - 助動詞</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #fdcb6e;"></div>
+                    <span>ADV - 副詞</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #74b9ff;"></div>
+                    <span>QUOTE - 引用</span>
+                </div>
+            </div>
+        </div>
+
+        <h2>📁 測試案例詳細內容</h2>
+        
+        <!-- App1 測試案例 -->
+        <div class="test-case">
+            <div class="test-case-header">📱 App1-TestCase1: Verify Subscription in home page</div>
+            <div class="test-case-content">
+                <div class="step">
+                    <div class="step-header">步驟 1: Launch browser</div>
+                    <div class="step-svg">
+                        <object data="svg_output/App1-TestCase1/step_01.svg" type="image/svg+xml"></object>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-header">步驟 2: Navigate to url</div>
+                    <div class="step-svg">
+                        <object data="svg_output/App1-TestCase1/step_02.svg" type="image/svg+xml"></object>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-header">步驟 3: Verify that home page is visible successfully</div>
+                    <div class="step-svg">
+                        <object data="svg_output/App1-TestCase1/step_03.svg" type="image/svg+xml"></object>
+                    </div>
+                </div>
+                <!-- 更多步驟可以繼續添加 -->
+            </div>
+        </div>
+
+        <div class="test-case">
+            <div class="test-case-header">📱 App2-TestCase1: Successfully Search for a Movie</div>
+            <div class="test-case-content">
+                <div class="step">
+                    <div class="step-header">步驟 1: Launch browser</div>
+                    <div class="step-svg">
+                        <object data="svg_output/App2-TestCase1/step_01.svg" type="image/svg+xml"></object>
+                    </div>
+                </div>
+                <!-- 更多步驟可以繼續添加 -->
+            </div>
+        </div>
+
+        <p style="text-align: center; color: #636e72; margin-top: 40px;">
+            💡 提示：SVG 圖表顯示每個測試步驟的詞性分析，不同顏色代表不同的詞性類別
+        </p>
+    </div>
+</body>
+</html>
