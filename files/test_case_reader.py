@@ -324,6 +324,62 @@ def run(files_dir: str = '.') -> List[Dict]:
     return all_cases
 
 
+def generate_results_table(all_cases: List[Dict],
+                            out_path: str = 'nlp_results_table.md') -> None:
+    """Write a per-step comparison table showing action/target for every method."""
+    _COLS = [
+        ('regex',      'M1 Regex'),
+        ('keyword',    'M2 Keyword'),
+        ('nltk_pos',   'M3 NLTK POS'),
+        ('nltk_chunk', 'M4 NLTK Chunk'),
+        ('spacy_dep',  'M5 spaCy'),
+        ('ensemble',   'M6 Ensemble'),
+    ]
+
+    lines: List[str] = [
+        '# NLP Method Comparison – Action & Target per Step',
+        '',
+        'Each cell shows **Action / Target** extracted by that method.',
+        'Empty cells (—) mean the method returned no result.',
+        '',
+        '---',
+        '',
+    ]
+
+    for tc in all_cases:
+        lines += [
+            f"## {tc['file']}",
+            f"**{tc['title']}**  ",
+            f"URLs: {', '.join(tc['urls'])}",
+            '',
+        ]
+        header = '| # | Step |' + ''.join(f' {label} |' for _, label in _COLS)
+        sep    = '|---|------|' + ''.join('---------|' for _ in _COLS)
+        lines += [header, sep]
+
+        for i, sr in enumerate(tc['analysed_steps'], 1):
+            step   = sr['step'].replace('|', '\\|')
+            lookup = {a['method']: a for a in sr['analyses']}
+            cells  = []
+            for mid, _ in _COLS:
+                a      = lookup.get(mid, {})
+                action = a.get('action', '')
+                target = a.get('target', '')
+                if action and target:
+                    cell = f"`{action}` / {target}"
+                elif action:
+                    cell = f"`{action}`"
+                else:
+                    cell = '—'
+                cells.append(cell.replace('|', '\\|'))
+            lines.append(f"| {i} | {step} |" + ''.join(f' {c} |' for c in cells))
+
+        lines += ['', '---', '']
+
+    Path(out_path).write_text('\n'.join(lines), encoding='utf-8')
+    print(f'Results table      → {out_path}')
+
+
 if __name__ == '__main__':
     results = run('.')
 
@@ -333,3 +389,4 @@ if __name__ == '__main__':
     print(f'Full results       → {out_json}')
 
     generate_comparison_report(results, 'nlp_methods_comparison.md')
+    generate_results_table(results, 'nlp_results_table.md')
