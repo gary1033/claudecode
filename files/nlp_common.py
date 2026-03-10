@@ -131,6 +131,7 @@ def run_method_standalone(method_id: str, analyse_fn) -> None:
       - reads all .feature files
       - prints results to stdout
       - saves results_<method_id>.json
+      - prints the saved file contents at the end
     """
     feature_files = sorted(Path('.').glob('*.feature'))
     all_cases = []
@@ -149,7 +150,13 @@ def run_method_standalone(method_id: str, analyse_fn) -> None:
         all_cases.append({**tc, 'steps_results': steps_results})
 
     out = save_method_results(method_id, all_cases)
-    print(f"\n→ Saved: {out}")
+
+    # ── Print the saved file back to stdout ──────────────────────────────────
+    print(f"\n{'='*60}")
+    print(f"Saved output → {out}")
+    print('='*60)
+    saved_text = Path(out).read_text(encoding='utf-8')
+    print(saved_text)
 
 
 # ─── Feature-file parser ──────────────────────────────────────────────────────
