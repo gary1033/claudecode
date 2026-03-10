@@ -553,4 +553,77 @@ final_conf = min(avg_conf + 0.05, 1.0)               ← +0.05 共識加成
 
 ---
 
-_本報告由 `test_case_reader.py` 自動生成，方法細節由人工補充_
+## 參考文獻
+
+### 工具與函式庫
+
+| 編號 | 引用 |
+|------|------|
+| [1] | Loper, E., & Bird, S. (2002). **NLTK: The Natural Language Toolkit**. *Proceedings of the ACL-02 Workshop on Effective Tools and Methodologies for Teaching Natural Language Processing and Computational Linguistics*, 63–70. https://doi.org/10.3115/1118108.1118117 |
+| [2] | Bird, S., Klein, E., & Loper, E. (2009). **Natural Language Processing with Python**. O'Reilly Media. ISBN 978-0-596-51649-9. https://www.nltk.org/book/ |
+| [3] | Honnibal, M., Montani, I., Van Landeghem, S., & Boyd, A. (2020). **spaCy: Industrial-strength Natural Language Processing in Python**. Zenodo. https://doi.org/10.5281/zenodo.1212303 |
+
+---
+
+### 詞性標注（POS Tagging）
+
+| 編號 | 引用 |
+|------|------|
+| [4] | Marcus, M. P., Santorini, B., & Marcinkiewicz, M. A. (1993). **Building a Large Annotated Corpus of English: The Penn Treebank**. *Computational Linguistics*, 19(2), 313–330. https://aclanthology.org/J93-2004 |
+| [5] | Ratnaparkhi, A. (1996). **A Maximum Entropy Model for Part-of-Speech Tagging**. *Proceedings of EMNLP 1996*, 133–142. https://aclanthology.org/W96-0213 |
+| [6] | Toutanova, K., Klein, D., Manning, C. D., & Singer, Y. (2003). **Feature-Rich Part-of-Speech Tagging with a Cyclic Dependency Network**. *Proceedings of NAACL-HLT 2003*, 173–180. https://doi.org/10.3115/1073445.1073478 |
+| [7] | Collins, M. (2002). **Discriminative Training Methods for Hidden Markov Models: Theory and Experiments with Perceptron Algorithms**. *Proceedings of EMNLP 2002*, 1–8. https://aclanthology.org/W02-1001 *(NLTK Averaged Perceptron Tagger 的理論基礎)* |
+
+---
+
+### 淺層句法分析（Shallow Parsing / Chunking）
+
+| 編號 | 引用 |
+|------|------|
+| [8] | Abney, S. P. (1991). **Parsing by Chunks**. In Berwick, R., Abney, S., & Tenny, C. (Eds.), *Principle-Based Parsing: Computation and Psycholinguistics* (pp. 257–278). Kluwer Academic Publishers. https://doi.org/10.1007/978-94-011-3474-3_10 *(Chunking 概念的奠基論文)* |
+| [9] | Ramshaw, L. A., & Marcus, M. P. (1995). **Text Chunking Using Transformation-Based Learning**. *Proceedings of the Third ACL Workshop on Very Large Corpora*, 82–94. https://aclanthology.org/W95-0107 |
+| [10] | Tjong Kim Sang, E. F., & Buchholz, S. (2000). **Introduction to the CoNLL-2000 Shared Task: Chunking**. *Proceedings of CoNLL-2000 and LLL-2000*, 127–132. https://aclanthology.org/W00-0726 |
+
+---
+
+### 依存句法分析（Dependency Parsing）
+
+| 編號 | 引用 |
+|------|------|
+| [11] | Nivre, J. (2003). **An Efficient Algorithm for Projective Dependency Parsing**. *Proceedings of IWPT 2003*, 149–160. https://aclanthology.org/W03-3017 *(Arc-standard 轉移演算法)* |
+| [12] | Nivre, J. (2008). **Algorithms for Deterministic Incremental Dependency Parsing**. *Computational Linguistics*, 34(4), 513–553. https://doi.org/10.1162/coli.07-056-R2-07-027 |
+| [13] | Nivre, J., et al. (2016). **Universal Dependencies v1: A Multilingual Treebank Collection**. *Proceedings of LREC 2016*, 1659–1666. https://aclanthology.org/L16-1262 *(spaCy 使用的依存關係標籤體系)* |
+| [14] | Honnibal, M., & Johnson, M. (2015). **An Improved Non-monotonic Transition System for Dependency Parsing**. *Proceedings of EMNLP 2015*, 1373–1378. https://doi.org/10.18653/v1/D15-1162 *(spaCy 依存解析器的核心演算法)* |
+
+---
+
+### 集成學習（Ensemble Learning）
+
+| 編號 | 引用 |
+|------|------|
+| [15] | Dietterich, T. G. (2000). **Ensemble Methods in Machine Learning**. *Proceedings of the 1st International Workshop on Multiple Classifier Systems (MCS 2000)*, Lecture Notes in Computer Science, Vol. 1857, 1–15. https://doi.org/10.1007/3-540-45014-9_1 |
+| [16] | Breiman, L. (1996). **Bagging Predictors**. *Machine Learning*, 24(2), 123–140. https://doi.org/10.1007/BF00058655 |
+| [17] | Polikar, R. (2006). **Ensemble Based Systems in Decision Making**. *IEEE Circuits and Systems Magazine*, 6(3), 21–45. https://doi.org/10.1109/MCAS.2006.1688199 |
+
+---
+
+### BDD 與自動化測試 NLP
+
+| 編號 | 引用 |
+|------|------|
+| [18] | Solis, C., & Wang, X. (2011). **A Study of the Characteristics of Behaviour Driven Development**. *Proceedings of SEAA 2011*, 383–387. https://doi.org/10.1109/SEAA.2011.76 |
+| [19] | Soeken, M., Wille, R., & Drechsler, R. (2012). **Assisted Behavior Driven Development Using Natural Language Processing**. *Proceedings of TOOLS 2012*, Lecture Notes in Computer Science, Vol. 7304, 269–287. https://doi.org/10.1007/978-3-642-30561-0_19 |
+| [20] | Srikaew, A., Tangworakitthaworn, P., Seekhao, N., & Namahoot, C. S. (2019). **Automated Acceptance Test Cases Generation from Behavior-Driven Development (BDD) Using NLP**. *Proceedings of ICCAS 2019*, 1278–1282. https://doi.org/10.23919/ICCAS47443.2019.8971573 |
+
+---
+
+### 資訊抽取（Information Extraction）通論
+
+| 編號 | 引用 |
+|------|------|
+| [21] | Jurafsky, D., & Martin, J. H. (2024). **Speech and Language Processing** (3rd ed. draft). Stanford University. https://web.stanford.edu/~jurafsky/slp3/ *(第 8 章：Sequence Labeling for Parts of Speech and NER；第 15 章：Dependency Parsing)* |
+| [22] | Manning, C. D., & Schütze, H. (1999). **Foundations of Statistical Natural Language Processing**. MIT Press. ISBN 978-0-262-13360-9. *(第 10 章：Markov Models；第 11 章：POS Tagging)* |
+
+---
+
+_本報告由 `test_case_reader.py` 自動生成，方法細節與參考文獻由人工補充_
