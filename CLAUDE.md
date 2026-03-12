@@ -191,6 +191,10 @@ When this project gains a language/framework, update the relevant sections below
 3. Make focused, targeted edits
 4. Verify changes do not break existing functionality
 
+### File Index Maintenance
+
+- Whenever a file is **added or removed** from the `files/` directory, **always update `files/README.md`** in the same commit to reflect the change.
+
 ### Risky Actions — Always Confirm First
 
 The following actions require explicit user confirmation before proceeding:
@@ -226,6 +230,10 @@ The following actions require explicit user confirmation before proceeding:
 2. 確認要在哪個分支上工作
 3. 進行有針對性的精確修改
 4. 確認變更不會破壞現有功能
+
+### 檔案索引維護
+
+- 每當 `files/` 目錄有檔案**新增或刪除**，**必須在同一次 commit 中同步更新 `files/README.md`**。
 
 ### 高風險操作 — 必須先確認
 
