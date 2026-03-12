@@ -1,4 +1,4 @@
-urls = ["http://automationexercise.com","https://automationexercise.com/login"]
+urls = ["http://automationexercise.com"]
 
 Test Case 3: Login User with incorrect email and password
 1. Launch browser

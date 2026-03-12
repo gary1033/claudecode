@@ -1,279 +1,307 @@
-import os
-import re
+#!/usr/bin/env python3
+"""
+test_case_reader.py
+
+Orchestrator: reads all .feature files and extracts action(s) + target(s)
+from every numbered test step using all six NLP methods.
+
+Each method lives in its own module and can also be run standalone:
+    python3 method1_regex.py  …  python3 method6_ensemble.py
+
+Outputs (written to the same directory as the .feature files):
+    ground_truth.json          — manually annotated correct answers
+    nlp_analysis_results.json  — full per-step breakdown across all methods
+    nlp_results_table.md       — comparison table (ground truth vs each method)
+    nlp_accuracy_report.md     — per-method accuracy scores
+"""
+
+import json
 from pathlib import Path
+from typing import Dict, List, Tuple
 
-class SimplePOSTagger:
-    """簡化版的詞性標註器"""
-    
-    # 定義詞性規則
-    VERBS = ['launch', 'navigate', 'verify', 'click', 'enter', 'scroll', 
-             'fill', 'select', 'check', 'submit', 'wait', 'search',
-             'type', 'press', 'hover', 'drag', 'drop', 'upload',
-             'download', 'open', 'close', 'refresh', 'move', 'filter',
-             'register', 'login', 'logout', 'add', 'delete', 'edit']
-    
-    NOUNS = ['browser', 'page', 'button', 'input', 'field', 'link',
-             'text', 'message', 'footer', 'header', 'form', 'email',
-             'address', 'password', 'arrow', 'url', 'website', 'screen',
-             'card', 'movie', 'user', 'name', 'title', 'state']
-    
-    PREPOSITIONS = ['to', 'in', 'on', 'at', 'with', 'by', 'from', 'for', 'of']
-    
-    DETERMINERS = ['a', 'an', 'the', 'that', 'this']
-    
-    CONJUNCTIONS = ['and', 'or', 'but']
-    
-    @staticmethod
-    def tag_word(word):
-        """標註單個詞的詞性"""
-        word_lower = word.lower().strip('.,!?;:')
-        
-        if word_lower in SimplePOSTagger.VERBS:
-            return 'VERB'
-        elif word_lower in SimplePOSTagger.NOUNS:
-            return 'NOUN'
-        elif word_lower in SimplePOSTagger.PREPOSITIONS:
-            return 'PREP'
-        elif word_lower in SimplePOSTagger.DETERMINERS:
-            return 'DET'
-        elif word_lower in SimplePOSTagger.CONJUNCTIONS:
-            return 'CONJ'
-        elif word.startswith("'") or word.startswith('"'):
-            return 'QUOTE'
-        elif word_lower in ['is', 'are', 'am', 'was', 'were', 'be', 'been']:
-            return 'AUX'
-        elif word_lower in ['successfully', 'correctly', 'incorrectly', 'visible']:
-            return 'ADV'
-        elif word_lower == 'not':
-            return 'NEG'
-        else:
-            return 'WORD'
-    
-    @staticmethod
-    def tokenize_and_tag(text):
-        """分詞並標註詞性"""
-        # 簡單的分詞
-        words = re.findall(r"'[^']+'|\"[^\"]+\"|[\w]+|[.,!?;:]", text)
-        
-        tagged = []
-        for word in words:
-            pos = SimplePOSTagger.tag_word(word)
-            tagged.append((word, pos))
-        
-        return tagged
+from nlp_common import (
+    NLTK_AVAILABLE, SPACY_AVAILABLE,
+    ActionTarget, StepResult,
+    parse_feature_file,
+)
+
+from method1_regex      import analyse as m1
+from method2_keyword    import analyse as m2
+from method3_nltk_pos   import analyse as m3
+from method4_nltk_chunk import analyse as m4
+from method5_spacy_dep  import analyse as m5
+from method6_ensemble   import analyse as m6
+
+METHODS = [
+    ('regex',      'M1 Regex',       m1),
+    ('keyword',    'M2 Keyword',     m2),
+    ('nltk_pos',   'M3 NLTK POS',   m3),
+    ('nltk_chunk', 'M4 NLTK Chunk', m4),
+    ('spacy_dep',  'M5 spaCy',      m5),
+    ('ensemble',   'M6 Ensemble',   m6),
+]
+
+# ─── Accuracy helpers ─────────────────────────────────────────────────────────
+
+def _norm(s: str) -> str:
+    return s.lower().strip()
 
 
-class SVGGenerator:
-    """生成 SVG 依存關係圖"""
-    
-    @staticmethod
-    def generate_pos_svg(text, tagged_words, output_file):
-        """生成 POS 標註的 SVG"""
-        
-        # SVG 設置
-        width = max(1200, len(tagged_words) * 100)
-        height = 200
-        word_spacing = width // (len(tagged_words) + 1)
-        
-        # 顏色配置
-        colors = {
-            'VERB': '#ff6b6b',
-            'NOUN': '#4ecdc4',
-            'PREP': '#95e1d3',
-            'DET': '#f9ca24',
-            'CONJ': '#a29bfe',
-            'AUX': '#fd79a8',
-            'ADV': '#fdcb6e',
-            'QUOTE': '#74b9ff',
-            'WORD': '#dfe6e9',
-            'NEG': '#ff7675'
-        }
-        
-        svg_parts = [
-            f'<svg width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">',
-            f'<rect width="{width}" height="{height}" fill="white"/>',
-            f'<text x="10" y="30" font-size="14" font-weight="bold" fill="#2d3436">{text}</text>'
+def _target_match(extracted: str, truth: str) -> bool:
+    """Relaxed match: one must be a substring of the other (normalised)."""
+    e, t = _norm(extracted), _norm(truth)
+    return e == t or e in t or t in e
+
+
+def _pair_correct(extracted: ActionTarget, truth_pair: Dict) -> Tuple[bool, bool]:
+    """Return (action_ok, full_pair_ok)."""
+    action_ok = _norm(extracted.action) == _norm(truth_pair['action'])
+    targets_ok = all(
+        any(_target_match(et, gt) for et in extracted.targets)
+        for gt in truth_pair['targets']
+    ) if truth_pair['targets'] else (not extracted.targets)
+    return action_ok, action_ok and targets_ok
+
+
+def evaluate(results: List[Dict], truth_data: List[Dict]) -> Dict[str, Dict]:
+    """Compare each method's output against ground_truth.json."""
+    truth_index: Dict[Tuple[str, str], List[Dict]] = {}
+    for tc in truth_data:
+        for s in tc['steps']:
+            truth_index[(tc['file'], s['step'])] = s['pairs']
+
+    stats: Dict[str, Dict] = {mid: {'action_correct': 0, 'pair_correct': 0, 'total': 0}
+                               for mid, _, _ in METHODS}
+
+    for tc in results:
+        for sr in tc['analysed_steps']:
+            key = (tc['file'], sr['step'])
+            truth_pairs = truth_index.get(key, [])
+            if not truth_pairs:
+                continue
+            for mid, _, _ in METHODS:
+                a_dict = next((a for a in sr['analyses'] if a['method'] == mid), None)
+                if a_dict is None:
+                    continue
+                extracted = [ActionTarget(p['action'], p['targets']) for p in a_dict['pairs']]
+                for i, tp in enumerate(truth_pairs):
+                    stats[mid]['total'] += 1
+                    ep = extracted[i] if i < len(extracted) else ActionTarget('', [])
+                    a_ok, p_ok = _pair_correct(ep, tp)
+                    if a_ok:
+                        stats[mid]['action_correct'] += 1
+                    if p_ok:
+                        stats[mid]['pair_correct'] += 1
+
+    for mid in stats:
+        t = stats[mid]['total'] or 1
+        stats[mid]['action_acc'] = round(stats[mid]['action_correct'] / t * 100, 1)
+        stats[mid]['pair_acc']   = round(stats[mid]['pair_correct']   / t * 100, 1)
+    return stats
+
+
+# ─── Per-step analysis ────────────────────────────────────────────────────────
+
+def _result_to_dict(r: StepResult) -> Dict:
+    return {
+        'method':     r.method,
+        'confidence': round(r.confidence, 3),
+        'notes':      r.notes,
+        'pairs':      [{'action': p.action, 'targets': p.targets} for p in r.pairs],
+    }
+
+
+def analyse_step(step: str) -> Dict:
+    results = [fn(step) for _, _, fn in METHODS]
+    best = results[-1]
+    return {
+        'step':     step,
+        'analyses': [_result_to_dict(r) for r in results],
+        'best': {
+            'pairs':      [{'action': p.action, 'targets': p.targets} for p in best.pairs],
+            'confidence': round(best.confidence, 3),
+        },
+    }
+
+
+# ─── Output: comparison table ─────────────────────────────────────────────────
+
+def _fmt_pairs(pairs: List[Dict]) -> str:
+    if not pairs:
+        return '—'
+    parts = []
+    for p in pairs:
+        a = p.get('action', '') or '—'
+        t = ', '.join(p.get('targets', [])) or '—'
+        parts.append(f'`{a}`: {t}')
+    return ' ➜ '.join(parts)
+
+
+def generate_results_table(all_cases: List[Dict], truth_data: List[Dict],
+                            out_path: str = 'nlp_results_table.md') -> None:
+    truth_index: Dict[Tuple[str, str], List[Dict]] = {}
+    for tc in truth_data:
+        for s in tc['steps']:
+            truth_index[(tc['file'], s['step'])] = s['pairs']
+
+    col_labels = [label for _, label, _ in METHODS]
+    lines: List[str] = [
+        '# NLP Method Comparison – Action & Target per Step',
+        '',
+        'Each cell shows `Action`: target(s).  Multi-pair steps use ➜ as separator.',
+        '✓ = action correct AND all targets match.  ✗ = mismatch.',
+        '',
+        '---',
+        '',
+    ]
+
+    for tc in all_cases:
+        lines += [
+            f"## {tc['file']}",
+            f"**{tc['title']}**  ",
+            f"URLs: {', '.join(tc['urls'])}",
+            '',
         ]
-        
-        # 繪製每個詞和它的 POS 標籤
-        for i, (word, pos) in enumerate(tagged_words):
-            x = (i + 1) * word_spacing
-            y = 100
-            
-            color = colors.get(pos, '#95a5a6')
-            
-            # 繪製詞
-            svg_parts.append(
-                f'<text x="{x}" y="{y}" text-anchor="middle" font-size="16" fill="#2d3436">{word}</text>'
-            )
-            
-            # 繪製 POS 標籤
-            svg_parts.append(
-                f'<rect x="{x-30}" y="{y+10}" width="60" height="25" fill="{color}" rx="5"/>'
-            )
-            svg_parts.append(
-                f'<text x="{x}" y="{y+27}" text-anchor="middle" font-size="12" fill="white" font-weight="bold">{pos}</text>'
-            )
-            
-            # 繪製連接線
-            if i > 0:
-                prev_x = i * word_spacing
-                svg_parts.append(
-                    f'<line x1="{prev_x+30}" y1="{y+20}" x2="{x-30}" y2="{y+20}" stroke="#b2bec3" stroke-width="1" stroke-dasharray="5,5"/>'
-                )
-        
-        # 添加圖例
-        legend_y = height - 50
-        legend_x = 10
-        svg_parts.append(f'<text x="{legend_x}" y="{legend_y-10}" font-size="12" font-weight="bold" fill="#2d3436">POS Tags:</text>')
-        
-        legend_items = [
-            ('VERB', 'Verb'),
-            ('NOUN', 'Noun'),
-            ('PREP', 'Preposition'),
-            ('DET', 'Determiner'),
-            ('AUX', 'Auxiliary')
-        ]
-        
-        for i, (pos, label) in enumerate(legend_items):
-            lx = legend_x + i * 150
-            color = colors.get(pos, '#95a5a6')
-            svg_parts.append(f'<rect x="{lx}" y="{legend_y}" width="20" height="15" fill="{color}"/>')
-            svg_parts.append(f'<text x="{lx+25}" y="{legend_y+12}" font-size="11" fill="#2d3436">{label}</text>')
-        
-        svg_parts.append('</svg>')
-        
-        svg_content = '\n'.join(svg_parts)
-        
-        with open(output_file, 'w', encoding='utf-8') as f:
-            f.write(svg_content)
-        
-        return svg_content
+        header = '| # | Step | Ground Truth |' + ''.join(f' {lb} |' for lb in col_labels)
+        sep    = '|---|------|-------------|' + ''.join('---------|' for _ in col_labels)
+        lines += [header, sep]
+
+        for i, sr in enumerate(tc['analysed_steps'], 1):
+            step        = sr['step'].replace('|', '\\|')
+            key         = (tc['file'], sr['step'])
+            truth_pairs = truth_index.get(key, [])
+            gt_cell     = _fmt_pairs([{'action': p['action'], 'targets': p['targets']}
+                                       for p in truth_pairs]).replace('|', '\\|')
+            cells: List[str] = []
+            for a_dict in sr['analyses']:
+                extracted = [ActionTarget(p['action'], p['targets']) for p in a_dict['pairs']]
+                correct = all(
+                    _pair_correct(
+                        extracted[j] if j < len(extracted) else ActionTarget('', []),
+                        tp
+                    )[1]
+                    for j, tp in enumerate(truth_pairs)
+                ) if truth_pairs else True
+                mark = '✓' if correct else '✗'
+                cell = f"{mark} {_fmt_pairs(a_dict['pairs'])}"
+                cells.append(cell.replace('|', '\\|'))
+
+            lines.append(f"| {i} | {step} | {gt_cell} |" +
+                         ''.join(f' {c} |' for c in cells))
+        lines += ['', '---', '']
+
+    Path(out_path).write_text('\n'.join(lines), encoding='utf-8')
+    print(f'Results table      → {out_path}')
 
 
-class TestCaseReader:
-    """讀取並解析測試案例檔案"""
-    
-    def __init__(self, upload_dir="."):
-        self.upload_dir = upload_dir
-        self.test_cases = []
-        self.output_dir = "svg_output"
-        
-        # 創建輸出目錄
-        Path(self.output_dir).mkdir(exist_ok=True)
-    
-    def read_all_files(self):
-        """讀取所有.feature檔案"""
-        upload_path = Path(self.upload_dir)
-        feature_files = sorted(upload_path.glob("*.feature"))
-        
-        print(f"找到 {len(feature_files)} 個測試檔案\n")
-        
-        for file_path in feature_files:
-            test_case = self.read_file(file_path)
-            if test_case:
-                self.test_cases.append(test_case)
-        
-        return self.test_cases
-    
-    def read_file(self, file_path):
-        """讀取單一feature檔案"""
-        try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                content = f.read()
-            
-            # 解析檔案內容
-            lines = content.strip().split('\n')
-            
-            # 提取檔案名稱
-            file_name = file_path.name
-            
-            # 提取URL
-            urls = None
-            if lines and lines[0].startswith('urls = '):
-                urls = lines[0]
-            
-            # 提取測試案例標題
-            title = None
+# ─── Output: accuracy report ──────────────────────────────────────────────────
+
+def generate_accuracy_report(stats: Dict[str, Dict],
+                              out_path: str = 'nlp_accuracy_report.md') -> None:
+    lines: List[str] = [
+        '# NLP Method Accuracy Report',
+        '',
+        'Evaluated against `ground_truth.json`.',
+        '',
+        '**Action accuracy** = action verb correct / total pairs.',
+        '**Pair accuracy**   = action correct AND all ground-truth targets matched (relaxed substring).',
+        '',
+        '| Method | Action Correct | Pair Correct | Total Pairs | Action Acc | Pair Acc |',
+        '|--------|---------------|-------------|-------------|-----------|---------|',
+    ]
+    for mid, label, _ in METHODS:
+        s = stats[mid]
+        lines.append(
+            f"| {label} | {s['action_correct']} | {s['pair_correct']} "
+            f"| {s['total']} | **{s['action_acc']}%** | **{s['pair_acc']}%** |"
+        )
+    lines += [
+        '',
+        '---',
+        '',
+        '## Notes',
+        '',
+        '- Target matching is **relaxed**: extracted target passes if it is a',
+        '  substring of the ground-truth target or vice versa (case-insensitive).',
+        '- A pair is counted correct only when **both** action and **all** ground-truth targets match.',
+        '- Compound steps (e.g., "Enter X and Click Y") count as separate pairs.',
+        '',
+        '_Report auto-generated by `test_case_reader.py`_',
+    ]
+    Path(out_path).write_text('\n'.join(lines), encoding='utf-8')
+    print(f'Accuracy report    → {out_path}')
+
+
+# ─── Output: per-method result files ─────────────────────────────────────────
+
+def save_per_method_results(all_cases: List[Dict], out_dir: str = '.') -> None:
+    """Write one results_<method_id>.json per method, same format as standalone runs."""
+    for method_id, label, _ in METHODS:
+        output = []
+        for tc in all_cases:
             steps = []
-            
-            for i, line in enumerate(lines):
-                if line.startswith('Test Case'):
-                    title = line
-                elif line.strip() and line[0].isdigit() and '. ' in line:
-                    steps.append(line.strip())
-            
-            test_case = {
-                'file_name': file_name,
-                'urls': urls,
-                'title': title,
+            for sr in tc['analysed_steps']:
+                a_dict = next((a for a in sr['analyses'] if a['method'] == method_id), None)
+                if a_dict is None:
+                    continue
+                steps.append({
+                    'step':       sr['step'],
+                    'pairs':      a_dict['pairs'],
+                    'confidence': a_dict['confidence'],
+                })
+            output.append({
+                'file':  tc['file'],
+                'title': tc['title'],
+                'urls':  tc['urls'],
                 'steps': steps,
-                'content': content
-            }
-            
-            return test_case
-            
-        except Exception as e:
-            print(f"讀取檔案 {file_path} 時發生錯誤: {e}")
-            return None
-    
-    def analyze_and_generate_svgs(self):
-        """分析每個步驟並生成 SVG"""
-        print("=" * 80)
-        print("開始分析測試步驟並生成 SVG")
-        print("=" * 80)
-        
-        for tc_idx, tc in enumerate(self.test_cases):
-            print(f"\n處理: {tc['file_name']}")
-            
-            # 為每個測試案例創建子目錄
-            tc_dir = Path(self.output_dir) / tc['file_name'].replace('.feature', '')
-            tc_dir.mkdir(exist_ok=True)
-            
-            for step_idx, step in enumerate(tc['steps'], 1):
-                # 移除步驟編號
-                step_text = re.sub(r'^\d+\.\s*', '', step)
-                
-                # 進行 POS 標註
-                tagged = SimplePOSTagger.tokenize_and_tag(step_text)
-                
-                # 生成 SVG 文件名
-                svg_filename = tc_dir / f"step_{step_idx:02d}.svg"
-                
-                # 生成 SVG
-                SVGGenerator.generate_pos_svg(step_text, tagged, svg_filename)
-                
-                print(f"  步驟 {step_idx}: {svg_filename}")
-                
-                # 顯示 POS 分析結果
-                print(f"    原文: {step_text}")
-                print(f"    POS: {' '.join([f'{w}({p})' for w, p in tagged])}")
-        
-        print(f"\n所有 SVG 檔案已生成在 '{self.output_dir}' 目錄中")
-    
-    def display_summary(self):
-        """顯示所有測試案例的摘要"""
-        print("=" * 60)
-        print("測試案例摘要")
-        print("=" * 60)
-        
-        for i, tc in enumerate(self.test_cases, 1):
-            print(f"\n[{i}] {tc['file_name']}")
-            print(f"    {tc['title']}")
-            print(f"    步驟數量: {len(tc['steps'])}")
+            })
+        out_path = Path(out_dir) / f'results_{method_id}.json'
+        out_path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding='utf-8')
+        print(f'Per-method result  → {out_path}  ({label})')
 
 
-if __name__ == "__main__":
-    # 創建讀取器實例
-    reader = TestCaseReader()
-    
-    # 讀取所有檔案
-    test_cases = reader.read_all_files()
-    
-    # 顯示摘要
-    reader.display_summary()
-    
-    print("\n")
-    
-    # 分析並生成 SVG
-    reader.analyze_and_generate_svgs()
+# ─── Main ─────────────────────────────────────────────────────────────────────
+
+def run(files_dir: str = '.') -> List[Dict]:
+    feature_files = sorted(Path(files_dir).glob('*.feature'))
+    print(f'Found {len(feature_files)} .feature file(s)')
+    print(f'NLTK  : {"available" if NLTK_AVAILABLE  else "unavailable"}')
+    print(f'spaCy : {"available" if SPACY_AVAILABLE else "unavailable"}')
+    print()
+
+    all_cases: List[Dict] = []
+    for fp in feature_files:
+        tc = parse_feature_file(fp)
+        print(f"{'='*70}")
+        print(f"File : {tc['file']}")
+        print(f"Title: {tc['title']}")
+        print()
+
+        analysed_steps: List[Dict] = []
+        for i, step in enumerate(tc['steps'], 1):
+            result = analyse_step(step)
+            analysed_steps.append(result)
+            print(f"  Step {i:2d}: {step}")
+            for p in result['best']['pairs']:
+                tstr = ', '.join(p['targets']) if p['targets'] else '(none)'
+                print(f"          Action → {p['action'] or '(none)':<20s} Targets → {tstr}")
+        print()
+        all_cases.append({**tc, 'analysed_steps': analysed_steps})
+
+    return all_cases
+
+
+if __name__ == '__main__':
+    truth_data = json.loads(Path('ground_truth.json').read_text(encoding='utf-8'))
+
+    results = run('.')
+
+    with open('nlp_analysis_results.json', 'w', encoding='utf-8') as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+    print('Full results       → nlp_analysis_results.json')
+
+    save_per_method_results(results, '.')
+
+    stats = evaluate(results, truth_data)
+    generate_results_table(results, truth_data, 'nlp_results_table.md')
+    generate_accuracy_report(stats, 'nlp_accuracy_report.md')

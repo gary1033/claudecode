@@ -1,105 +1,58 @@
-# 測試案例 POS 分析器
+# files/ 目錄說明
 
-## 功能說明
+本目錄存放所有與「從測試步驟自動萃取 action/target」相關的分析文件與程式。
 
-這個程式會讀取所有的 `.feature` 測試案例檔案，對每一個測試步驟進行詞性（POS - Part of Speech）分析，並為每個步驟生成一個 SVG 視覺化圖表。
+---
 
-## 主要功能
+## 文件索引
 
-### 1. 讀取檔案
-- 自動讀取當前目錄下所有的 `.feature` 檔案
-- 解析測試案例的標題、URL 和步驟
+### 共用基礎模組
 
-### 2. POS 詞性分析
-程式會分析每個測試步驟中的詞彙，並標註其詞性：
+| 檔案 | 對應程式 | 說明 |
+|------|----------|------|
+| [nlp_common.md](nlp_common.md) | `nlp_common.py` | 所有方法共用的基礎工具箱：資料型別、動詞詞彙表、複合步驟拆分器、`.feature` 檔解析器、結果存檔工具 |
 
-- **VERB (動詞)** - 紅色 (#ff6b6b)
-  - 例如: launch, navigate, verify, click, enter, scroll
-  
-- **NOUN (名詞)** - 青色 (#4ecdc4)
-  - 例如: browser, page, button, input, email, text
-  
-- **PREP (介係詞)** - 淺青色 (#95e1d3)
-  - 例如: to, in, on, at, with, by
-  
-- **DET (限定詞)** - 黃色 (#f9ca24)
-  - 例如: a, an, the, that, this
-  
-- **AUX (助動詞)** - 粉色 (#fd79a8)
-  - 例如: is, are, am, was, were, be
-  
-- **ADV (副詞)** - 橙色 (#fdcb6e)
-  - 例如: successfully, correctly, visible
-  
-- **CONJ (連接詞)** - 紫色 (#a29bfe)
-  - 例如: and, or, but
-  
-- **QUOTE (引用文字)** - 藍色 (#74b9ff)
-  - 所有在引號中的文字
+### NLP 方法說明（六種演算法）
 
-### 3. SVG 生成
-為每個測試步驟生成一個 SVG 圖表，顯示：
-- 原始測試步驟文字
-- 每個詞彙及其詞性標籤
-- 用顏色區分不同的詞性
-- 虛線連接相鄰的詞彙
+| 檔案 | 對應程式 | 說明 |
+|------|----------|------|
+| [method1_regex.md](method1_regex.md) | `method1_regex.py` | 規則式正規表示式：用預設動詞列表搭配 regex pattern 拆解步驟，無外部依賴 |
+| [method2_keyword.md](method2_keyword.md) | `method2_keyword.py` | 關鍵字 + 模式啟發法：以關鍵字表驅動，針對引號、介系詞等結構做啟發式切割 |
+| [method3_nltk_pos.md](method3_nltk_pos.md) | `method3_nltk_pos.py` | NLTK 詞性標注（POS Tagging）：標記每個詞的詞性，取第一個動詞為 action、其後名詞片語為 target |
+| [method4_nltk_chunk.md](method4_nltk_chunk.md) | `method4_nltk_chunk.py` | NLTK 淺層句法分析（Chunking）：在 POS 之上定義名詞片語 chunk 規則，進一步分組 target |
+| [method5_spacy_dep.md](method5_spacy_dep.md) | `method5_spacy_dep.py` | spaCy 依存句法分析（Dependency Parsing）：分析詞與詞的句法依存關係，精準找出動詞的受詞 |
+| [method6_ensemble.md](method6_ensemble.md) | `method6_ensemble.py` | 集成投票（Ensemble Voting）：彙整以上各方法的結果，以多數決或加權投票取最終輸出 |
 
-## 輸出結構
+---
 
-```
-svg_output/
-├── App1-TestCase1/
-│   ├── step_01.svg
-│   ├── step_02.svg
-│   ├── ...
-│   └── step_07.svg
-├── App1-TestCase2/
-│   ├── step_01.svg
-│   ├── ...
-├── App2-TestCase1/
-│   ├── step_01.svg
-│   ├── ...
-└── index.html (索引頁面)
-```
+### 比較與評估報告
 
-## 統計資訊
+| 檔案 | 說明 |
+|------|------|
+| [nlp_methods_comparison.md](nlp_methods_comparison.md) | 六種方法的完整橫向比較：原理、演算法細節、優缺點、實際輸出範例 |
+| [nlp_accuracy_report.md](nlp_accuracy_report.md) | 對照 `ground_truth.json` 的準確率報告，包含 action 準確率與 pair 準確率數字 |
+| [nlp_results_table.md](nlp_results_table.md) | 逐步驟輸出對照表：每個測試步驟在六種方法下的 action/target 輸出與正確性標記 |
 
-- **測試案例檔案**: 12 個
-- **總測試步驟**: 107 個
-- **生成的 SVG**: 107 個
+---
 
-## 使用方法
+### 延伸分析
 
-1. 將所有 `.feature` 檔案放在程式所在目錄
-2. 執行程式: `python test_case_reader.py`
-3. 查看 `svg_output` 目錄中生成的 SVG 檔案
-4. 開啟 `svg_output/index.html` 可在瀏覽器中查看所有圖表
+| 檔案 | 說明 |
+|------|------|
+| [generalizability_analysis.md](generalizability_analysis.md) | 泛化能力分析：評估六種方法在面對不同格式或不同領域的自然語言腳本時，準確率預期下降的原因與風險點 |
+| [element_matching_strategies.md](element_matching_strategies.md) | 元素比對策略：說明如何將萃取出的 action/target 對應到真實網頁的 DOM 元素，涵蓋精確比對、屬性比對、模糊比對、語意嵌入等四段 fallback 流程，並提供 Selenium 與 Playwright 實作範例 |
 
-## 範例
+---
 
-### 輸入
-```
-6. Enter email address in input and click arrow button
-```
+## 目錄其他檔案
 
-### 輸出 (POS 分析)
-```
-Enter(VERB) email(NOUN) address(NOUN) in(PREP) input(NOUN) and(CONJ) click(VERB) arrow(NOUN) button(NOUN)
-```
-
-### 視覺化
-生成的 SVG 會顯示每個詞彙，並用不同顏色的標籤標示其詞性。
-
-## 技術細節
-
-- 使用簡化的規則式 POS 標註器
-- SVG 格式輸出，可在任何瀏覽器中查看
-- 支援中文輸出和說明
-- 自動創建目錄結構
-
-## 檔案清單
-
-1. `test_case_reader.py` - 主程式
-2. `svg_output/` - SVG 輸出目錄
-3. `svg_output/index.html` - 索引頁面
-4. `README.md` - 本說明文檔
+| 檔案 | 說明 |
+|------|------|
+| `method1_regex.py` ~ `method6_ensemble.py` | 各方法的 Python 實作 |
+| `nlp_common.py` | 見 [nlp_common.md](nlp_common.md) |
+| `test_case_reader.py` | 讀取 `.feature` 檔並解析測試步驟的基礎模組 |
+| `results_*.json` | 各方法對所有測試案例的原始輸出結果 |
+| `nlp_analysis_results.json` | 彙整六種方法結果的統整 JSON |
+| `ground_truth.json` | 人工標注的正確 action/target 對照表，作為準確率評估基準 |
+| `index.html` | 結果的網頁視覺化呈現 |
+| `step_01.svg` | 演算法流程示意圖 |
