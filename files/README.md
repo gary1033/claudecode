@@ -43,7 +43,7 @@
 | 檔案 | 說明 |
 |------|------|
 | `method1_regex.py` ~ `method6_ensemble.py` | 各方法的 Python 實作 |
-| `nlp_common.py` | 各方法共用的工具函式（載入 feature 檔、格式化輸出等） |
+| `nlp_common.py` | 各方法共用的基礎模組：定義 `ActionTarget` / `StepResult` 資料型別、`ACTION_VOCAB` 動詞表、複合步驟拆分器（`split_compound_step`）、多目標拆分器（`extract_targets`）、`.feature` 檔解析器（`parse_feature_file`）、結果存檔（`save_method_results`）與統一執行入口（`run_method_standalone`）；所有 method1～method6 皆 import 此模組 |
 | `test_case_reader.py` | 讀取 `.feature` 檔並解析測試步驟的基礎模組 |
 | `results_*.json` | 各方法對所有測試案例的原始輸出結果 |
 | `nlp_analysis_results.json` | 彙整六種方法結果的統整 JSON |
