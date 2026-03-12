@@ -24,6 +24,7 @@ from nlp_common import (
     ActionTarget, StepResult,
     parse_feature_file,
 )
+
 from method1_regex      import analyse as m1
 from method2_keyword    import analyse as m2
 from method3_nltk_pos   import analyse as m3
@@ -231,6 +232,34 @@ def generate_accuracy_report(stats: Dict[str, Dict],
     print(f'Accuracy report    → {out_path}')
 
 
+# ─── Output: per-method result files ─────────────────────────────────────────
+
+def save_per_method_results(all_cases: List[Dict], out_dir: str = '.') -> None:
+    """Write one results_<method_id>.json per method, same format as standalone runs."""
+    for method_id, label, _ in METHODS:
+        output = []
+        for tc in all_cases:
+            steps = []
+            for sr in tc['analysed_steps']:
+                a_dict = next((a for a in sr['analyses'] if a['method'] == method_id), None)
+                if a_dict is None:
+                    continue
+                steps.append({
+                    'step':       sr['step'],
+                    'pairs':      a_dict['pairs'],
+                    'confidence': a_dict['confidence'],
+                })
+            output.append({
+                'file':  tc['file'],
+                'title': tc['title'],
+                'urls':  tc['urls'],
+                'steps': steps,
+            })
+        out_path = Path(out_dir) / f'results_{method_id}.json'
+        out_path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding='utf-8')
+        print(f'Per-method result  → {out_path}  ({label})')
+
+
 # ─── Main ─────────────────────────────────────────────────────────────────────
 
 def run(files_dir: str = '.') -> List[Dict]:
@@ -270,6 +299,8 @@ if __name__ == '__main__':
     with open('nlp_analysis_results.json', 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
     print('Full results       → nlp_analysis_results.json')
+
+    save_per_method_results(results, '.')
 
     stats = evaluate(results, truth_data)
     generate_results_table(results, truth_data, 'nlp_results_table.md')
