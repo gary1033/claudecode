@@ -11,8 +11,7 @@ Test Case 23: Verify address details in checkout page
 8. Add products to cart
 9. Click 'Cart' button
 10. Verify that cart page is displayed
-11. Click 'Proceed To Checkout' button
-12. Verify that the delivery address is same address filled at the time registration of account
-13. Verify that the billing address is same address filled at the time registration of account
-14. Click 'Delete Account' button
-15. Verify 'ACCOUNT DELETED!' and click 'Continue' button
+11. Click Proceed To Checkout
+12. Verify that the delivery address and the billing address is same address filled at the time registration of account
+13. Click 'Delete Account' button
+14. Verify 'ACCOUNT DELETED!' and click 'Continue' button

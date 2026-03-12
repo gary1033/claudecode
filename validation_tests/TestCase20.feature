@@ -13,3 +13,5 @@ Test Case 20: Search Products and Verify Cart After Login
 10. Click 'Signup / Login' button and submit login details
 11. Again, go to Cart page
 12. Verify that those products are visible in cart after login as well
+13. Remove all products that have been added
+14. Verify 'Cart is empty! Click here to buy products.' is visible
