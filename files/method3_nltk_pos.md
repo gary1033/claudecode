@@ -216,3 +216,11 @@ _NP_TAGS = {'NN', 'NNS', 'NNP', 'NNPS', 'JJ', 'JJR', 'JJS', 'DT', 'CD'}
 | 處理 clicks/clicking | 只認 click | 只認 click | 認出 VBZ/VBG |
 | 外部依賴 | 無 | 無 | NLTK |
 | BDD 準確率 | 高 | 高 | 低（大寫問題） |
+
+---
+
+## 參考文獻
+
+1. Bird, Steven, Ewan Klein, and Edward Loper. *Natural Language Processing with Python*. O'Reilly Media, 2009. https://www.nltk.org/book/
+2. Marcus, Mitchell P., Mary Ann Marcinkiewicz, and Beatrice Santorini. "Building a Large Annotated Corpus of English: The Penn Treebank." *Computational Linguistics* 19(2), 1993. https://dl.acm.org/doi/10.5555/972470.972475
+3. NLTK Project. "nltk.tag — Part-of-Speech Tagging." *NLTK Documentation*. https://www.nltk.org/api/nltk.tag.html

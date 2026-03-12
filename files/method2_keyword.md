@@ -210,3 +210,11 @@
 - 步驟遵循常見的 BDD 慣用語
 - 動作詞有限且可預測
 - 不需要安裝外部套件
+
+---
+
+## 參考文獻
+
+1. Cucumber Ltd. "Gherkin Reference." *Cucumber Documentation*. https://cucumber.io/docs/gherkin/reference/
+2. Python Software Foundation. "re — Regular expression operations." *Python 3 Standard Library Documentation*. https://docs.python.org/3/library/re.html
+3. Smart, John Ferguson. *BDD in Action: Behavior-Driven Development for the Whole Software Lifecycle*. Manning Publications, 2014.

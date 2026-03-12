@@ -184,3 +184,11 @@ Enter email address in input and click arrow button
 詳見本文件最後的「泛化能力分析」章節（於 `generalizability_analysis.md`）。
 
 簡短回答：**如果新腳本也遵循「動詞開頭 + 引號目標」的格式，準確率不會下降太多**。但如果步驟格式差異很大（如用完整英文句子、被動語態），準確率會顯著降低。
+
+---
+
+## 參考文獻
+
+1. Friedl, Jeffrey E. F. *Mastering Regular Expressions*, 3rd ed. O'Reilly Media, 2006.
+2. Python Software Foundation. "re — Regular expression operations." *Python 3 Standard Library Documentation*. https://docs.python.org/3/library/re.html
+3. Cucumber Ltd. "Gherkin Reference." *Cucumber Documentation*. https://cucumber.io/docs/gherkin/reference/

@@ -199,10 +199,14 @@ When this project gains a language/framework, update the relevant sections below
 
 When optimising or modifying any NLP method:
 
-1. **Never overwrite** the existing `method<N>_<name>.py` — create a new file instead:
+1. **Never overwrite** the existing `method<N>_<name>.py` — create a new file instead, named after the **key optimisation technique**:
    - First version: `method1_regex.py`
-   - Optimised version: `method1_regex_v2.py`, `method1_regex_v3.py`, …
-2. **Create a matching `.md` file** (e.g., `method1_regex_v2.md`) in the same commit, following the same structure as the existing method docs.
+   - Optimised versions: `method1_regex_<technique>.py`, e.g.:
+     - `method1_regex_fuzzy.py` — added fuzzy/partial matching
+     - `method1_regex_multiverb.py` — extended multi-verb handling
+     - `method3_nltk_pos_lemma.py` — added lemmatisation
+   - **Never use bare numbers** (`v2`, `v3`) — the suffix must describe the change.
+2. **Create a matching `.md` file** (e.g., `method1_regex_fuzzy.md`) in the same commit, following the same structure as the existing method docs.
 3. **The `.md` file must include a `## 參考文獻` section** at the end, listing all papers, libraries, or resources that informed the optimisation. Use the format:
    ```
    ## 參考文獻
@@ -210,7 +214,7 @@ When optimising or modifying any NLP method:
    1. Author(s). "Title." *Venue*, Year. [URL or DOI]
    2. Library Name — brief description. URL
    ```
-4. Register the new file in `files/README.md` under a **versioned sub-row** of the original method's entry.
+4. Register the new file in `files/README.md` under a **sub-row** of the original method's entry, labelled with the technique name.
 5. Update `test_case_reader.py` (`METHODS` list) only if the new version is intended to **replace** the old one in the evaluation pipeline; otherwise keep both and note the comparison purpose in the `.md`.
 
 ### Risky Actions — Always Confirm First
@@ -257,10 +261,14 @@ The following actions require explicit user confirmation before proceeding:
 
 優化或修改任何 NLP 方法時：
 
-1. **絕不覆蓋**現有的 `method<N>_<name>.py`，改為建立新版本檔案：
+1. **絕不覆蓋**現有的 `method<N>_<name>.py`，改為建立新版本檔案，**以優化技術命名後綴**：
    - 原始版：`method1_regex.py`
-   - 優化版：`method1_regex_v2.py`、`method1_regex_v3.py`…
-2. **同一次 commit 建立對應的 `.md` 說明文件**（如 `method1_regex_v2.md`），格式與現有方法說明相同。
+   - 優化版：`method1_regex_<技術名稱>.py`，例如：
+     - `method1_regex_fuzzy.py` — 加入模糊比對
+     - `method1_regex_multiverb.py` — 擴充多動詞處理
+     - `method3_nltk_pos_lemma.py` — 加入詞形還原
+   - **禁止使用純數字後綴**（`v2`、`v3`），後綴必須描述新增的內容。
+2. **同一次 commit 建立對應的 `.md` 說明文件**（如 `method1_regex_fuzzy.md`），格式與現有方法說明相同。
 3. **`.md` 文件結尾必須附上 `## 參考文獻` 區塊**，列出優化所參考的論文、函式庫或資源，格式如下：
    ```
    ## 參考文獻

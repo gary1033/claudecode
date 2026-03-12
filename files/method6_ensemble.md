@@ -296,3 +296,11 @@ M6 結合了 M1/M2 的高準確率和 BDD 先驗規則，成功修正了 M3/M4/M
 - 可以接受較慢的速度
 - 步驟格式可能不一致（需要多方法互相校正）
 - 作為生產系統中的最終輸出方法
+
+---
+
+## 參考文獻
+
+1. Dietterich, Thomas G. "Ensemble Methods in Machine Learning." *Multiple Classifier Systems*, Lecture Notes in Computer Science, vol. 1857, Springer, 2000. https://doi.org/10.1007/3-540-45014-9_1
+2. Lam, Lok, and Sargur N. Srihari. "On Machine-Independent Representation of Knowledge for Multiclassifier Systems." *Pattern Recognition*, 30(5), 1997.
+3. Polikar, Robi. "Ensemble Based Systems in Decision Making." *IEEE Circuits and Systems Magazine* 6(3), 2006. https://doi.org/10.1109/MCAS.2006.1688199

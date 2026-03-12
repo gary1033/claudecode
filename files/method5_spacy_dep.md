@@ -281,3 +281,12 @@ spaCy 有時會把 `browser` 當作 ROOT（名詞為核心），導致 action = 
 - 需要處理複雜句型（從屬子句、並列結構）
 - 可以接受安裝 spaCy 和下載模型的成本
 - 與 Ensemble 結合使用效果最佳
+
+---
+
+## 參考文獻
+
+1. Honnibal, Matthew, and Ines Montani. "spaCy 2: Natural language understanding with Bloom embeddings, convolutional neural networks and incremental parsing." *Unpublished technical report*, 2017. https://spacy.io
+2. Nivre, Joakim, et al. "Universal Dependencies v1: A Multilingual Treebank Collection." *LREC*, 2016. https://universaldependencies.org
+3. Explosion AI. "spaCy — Industrial-strength NLP." *spaCy Documentation*. https://spacy.io/api/dependencyparser
+4. Explosion AI. "en_core_web_sm — English pipeline (small)." *spaCy Models*. https://spacy.io/models/en#en_core_web_sm

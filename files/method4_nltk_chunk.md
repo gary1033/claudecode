@@ -270,3 +270,11 @@ VP 規則匹配：VB + TO → [VP: Navigate to]
 - 想要透明、可調整的分組規則
 - 不需要安裝大型模型（NLTK 很輕量）
 - 願意為特定領域手動調整 CFG 文法
+
+---
+
+## 參考文獻
+
+1. Bird, Steven, Ewan Klein, and Edward Loper. *Natural Language Processing with Python*, Chapter 7 "Extracting Information from Text." O'Reilly Media, 2009. https://www.nltk.org/book/ch07.html
+2. Abney, Steven P. "Parsing By Chunks." In *Principle-Based Parsing*, Kluwer Academic Publishers, 1991.
+3. NLTK Project. "nltk.chunk — Chunking." *NLTK Documentation*. https://www.nltk.org/api/nltk.chunk.html

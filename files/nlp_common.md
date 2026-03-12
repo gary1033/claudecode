@@ -233,3 +233,11 @@ nlp_common.py
 ```
 
 所有方法都 import 完整的共用介面，自身只實作各自的 `analyse(step) → StepResult` 函式。
+
+---
+
+## 參考文獻
+
+1. Python Software Foundation. "re — Regular expression operations." *Python 3 Standard Library Documentation*. https://docs.python.org/3/library/re.html
+2. Python Software Foundation. "typing — Support for type hints." *Python 3 Standard Library Documentation*. https://docs.python.org/3/library/typing.html
+3. Cucumber Ltd. "Gherkin Reference." *Cucumber Documentation*. https://cucumber.io/docs/gherkin/reference/
