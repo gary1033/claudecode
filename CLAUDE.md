@@ -195,6 +195,24 @@ When this project gains a language/framework, update the relevant sections below
 
 - Whenever a file is **added or removed** from the `files/` directory, **always update `files/README.md`** in the same commit to reflect the change.
 
+### Algorithm Versioning
+
+When optimising or modifying any NLP method:
+
+1. **Never overwrite** the existing `method<N>_<name>.py` — create a new file instead:
+   - First version: `method1_regex.py`
+   - Optimised version: `method1_regex_v2.py`, `method1_regex_v3.py`, …
+2. **Create a matching `.md` file** (e.g., `method1_regex_v2.md`) in the same commit, following the same structure as the existing method docs.
+3. **The `.md` file must include a `## 參考文獻` section** at the end, listing all papers, libraries, or resources that informed the optimisation. Use the format:
+   ```
+   ## 參考文獻
+
+   1. Author(s). "Title." *Venue*, Year. [URL or DOI]
+   2. Library Name — brief description. URL
+   ```
+4. Register the new file in `files/README.md` under a **versioned sub-row** of the original method's entry.
+5. Update `test_case_reader.py` (`METHODS` list) only if the new version is intended to **replace** the old one in the evaluation pipeline; otherwise keep both and note the comparison purpose in the `.md`.
+
 ### Risky Actions — Always Confirm First
 
 The following actions require explicit user confirmation before proceeding:
@@ -234,6 +252,24 @@ The following actions require explicit user confirmation before proceeding:
 ### 檔案索引維護
 
 - 每當 `files/` 目錄有檔案**新增或刪除**，**必須在同一次 commit 中同步更新 `files/README.md`**。
+
+### 演算法版本管理
+
+優化或修改任何 NLP 方法時：
+
+1. **絕不覆蓋**現有的 `method<N>_<name>.py`，改為建立新版本檔案：
+   - 原始版：`method1_regex.py`
+   - 優化版：`method1_regex_v2.py`、`method1_regex_v3.py`…
+2. **同一次 commit 建立對應的 `.md` 說明文件**（如 `method1_regex_v2.md`），格式與現有方法說明相同。
+3. **`.md` 文件結尾必須附上 `## 參考文獻` 區塊**，列出優化所參考的論文、函式庫或資源，格式如下：
+   ```
+   ## 參考文獻
+
+   1. Author(s). "Title." *Venue*, Year. [URL 或 DOI]
+   2. 函式庫名稱 — 簡短說明. URL
+   ```
+4. 在 `files/README.md` 中，於原方法條目下新增**版本子列**登記新檔案。
+5. 僅在新版本**預計取代**舊版本進入評估流程時，才更新 `test_case_reader.py` 的 `METHODS` 清單；否則保留兩者，並在 `.md` 中說明比較目的。
 
 ### 高風險操作 — 必須先確認
 
