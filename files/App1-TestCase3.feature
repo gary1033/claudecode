@@ -10,16 +10,6 @@ Test Case 3: Login User with incorrect email and password
 7. Click 'login' button
 8. Verify error 'Your email or password is incorrect!' is visible
 
-urls = ["http://automationexercise.com","https://automationexercise.com/login"]
-
-Test Case 3: Login User with incorrect email and password
-1. Launch browser
-2. Navigate to url 'http://automationexercise.com'
-3. Click on 'Signup / Login' button
-4. Enter incorrect email address and password
-5. Click 'login' button
-6. Verify error 'Your email or password is incorrect!' is visible
-
 
 {
   "testCase": "Login User with incorrect email and password",
