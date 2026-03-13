@@ -1,0 +1,106 @@
+file,title,step_number,step,action,targets,confidence
+App1-TestCase1.feature,Test Case 1: Verify Subscription in home page,1,Launch browser,browser,,0.5
+App1-TestCase1.feature,Test Case 1: Verify Subscription in home page,2,Navigate to url 'http://automationexercise.com',Navigate,http://automationexercise.com,0.9
+App1-TestCase1.feature,Test Case 1: Verify Subscription in home page,3,Verify that home page is visible successfully,is,,0.5
+App1-TestCase1.feature,Test Case 1: Verify Subscription in home page,4,Scroll down to footer,Scroll,footer,0.8
+App1-TestCase1.feature,Test Case 1: Verify Subscription in home page,5,Verify text 'SUBSCRIPTION',Verify,SUBSCRIPTION,0.9
+App1-TestCase1.feature,Test Case 1: Verify Subscription in home page,6,Enter email address in input and click arrow button,Enter,email address,0.8
+App1-TestCase1.feature,Test Case 1: Verify Subscription in home page,6,Enter email address in input and click arrow button,click,arrow button,0.8
+App1-TestCase1.feature,Test Case 1: Verify Subscription in home page,7,Verify success message 'You have been successfully subscribed!' is visible,subscribed,You have been successfully subscribed!,0.9
+App1-TestCase2.feature,Test Case 2: Verify Scroll Up using 'Arrow' button and Scroll Down functionality,1,Launch browser,browser,,0.5
+App1-TestCase2.feature,Test Case 2: Verify Scroll Up using 'Arrow' button and Scroll Down functionality,2,Navigate to url 'http://automationexercise.com',Navigate,http://automationexercise.com,0.9
+App1-TestCase2.feature,Test Case 2: Verify Scroll Up using 'Arrow' button and Scroll Down functionality,3,Verify that home page is visible successfully,is,,0.5
+App1-TestCase2.feature,Test Case 2: Verify Scroll Up using 'Arrow' button and Scroll Down functionality,4,Scroll down page to bottom,page,bottom,0.8
+App1-TestCase2.feature,Test Case 2: Verify Scroll Up using 'Arrow' button and Scroll Down functionality,5,Verify 'SUBSCRIPTION' is visible,is,SUBSCRIPTION,0.9
+App1-TestCase2.feature,Test Case 2: Verify Scroll Up using 'Arrow' button and Scroll Down functionality,6,Click on arrow at bottom right side to move upward,Click,"arrow, bottom right side",0.8
+App1-TestCase2.feature,Test Case 2: Verify Scroll Up using 'Arrow' button and Scroll Down functionality,7,Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen,scrolled,Full-Fledged practice website for Automation Engineers,0.9
+App1-TestCase3.feature,Test Case 3: Login User with incorrect email and password,1,Launch browser,browser,,0.5
+App1-TestCase3.feature,Test Case 3: Login User with incorrect email and password,2,Navigate to url 'http://automationexercise.com',Navigate,http://automationexercise.com,0.9
+App1-TestCase3.feature,Test Case 3: Login User with incorrect email and password,3,Verify that home page is visible successfully,is,,0.5
+App1-TestCase3.feature,Test Case 3: Login User with incorrect email and password,4,Click on 'Signup / Login' button,Click,Signup / Login,0.9
+App1-TestCase3.feature,Test Case 3: Login User with incorrect email and password,5,Verify 'Login to your account' is visible,is,Login to your account,0.9
+App1-TestCase3.feature,Test Case 3: Login User with incorrect email and password,6,Enter incorrect email address and password,Enter,"incorrect email address and password, password",0.8
+App1-TestCase3.feature,Test Case 3: Login User with incorrect email and password,7,Click 'login' button,button,login,0.9
+App1-TestCase3.feature,Test Case 3: Login User with incorrect email and password,8,Verify error 'Your email or password is incorrect!' is visible,is,Your email or password is incorrect!,0.9
+App1-TestCase4.feature,Test Case 4: Verify Subscription in Cart page,1,Launch browser,browser,,0.5
+App1-TestCase4.feature,Test Case 4: Verify Subscription in Cart page,2,Navigate to url 'http://automationexercise.com',Navigate,http://automationexercise.com,0.9
+App1-TestCase4.feature,Test Case 4: Verify Subscription in Cart page,3,Verify that home page is visible successfully,is,,0.5
+App1-TestCase4.feature,Test Case 4: Verify Subscription in Cart page,4,Click 'Cart' button,Click,Cart,0.9
+App1-TestCase4.feature,Test Case 4: Verify Subscription in Cart page,5,Scroll down to footer,Scroll,footer,0.8
+App1-TestCase4.feature,Test Case 4: Verify Subscription in Cart page,6,Verify text 'SUBSCRIPTION',Verify,SUBSCRIPTION,0.9
+App1-TestCase4.feature,Test Case 4: Verify Subscription in Cart page,7,Enter email address in input and click arrow button,Enter,email address,0.8
+App1-TestCase4.feature,Test Case 4: Verify Subscription in Cart page,7,Enter email address in input and click arrow button,click,arrow button,0.8
+App1-TestCase4.feature,Test Case 4: Verify Subscription in Cart page,8,Verify success message 'You have been successfully subscribed!' is visible,subscribed,You have been successfully subscribed!,0.9
+App1-TestCase5.feature,Test Case 5: Register User,1,Launch browser,browser,,0.5
+App1-TestCase5.feature,Test Case 5: Register User,2,Navigate to url 'http://automationexercise.com',Navigate,http://automationexercise.com,0.9
+App1-TestCase5.feature,Test Case 5: Register User,3,Verify that home page is visible successfully,is,,0.5
+App1-TestCase5.feature,Test Case 5: Register User,4,Click on 'Signup / Login' button,Click,Signup / Login,0.9
+App1-TestCase5.feature,Test Case 5: Register User,5,Verify 'New User Signup!' is visible,Verify,New User Signup!,0.9
+App1-TestCase5.feature,Test Case 5: Register User,6,Enter name and email address,Enter,"name and email address, email address",0.8
+App1-TestCase5.feature,Test Case 5: Register User,7,Click 'Signup' button,Click,Signup,0.9
+App1-TestCase5.feature,Test Case 5: Register User,8,Verify that 'ENTER ACCOUNT INFORMATION' is visible,is,ENTER ACCOUNT INFORMATION,0.9
+App1-TestCase5.feature,Test Case 5: Register User,9,"Fill details: Title, Name, Email, Password, Date of birth",details,,0.5
+App1-TestCase5.feature,Test Case 5: Register User,10,Select checkbox 'Sign up for our newsletter!',Sign,Sign up for our newsletter!,0.9
+App1-TestCase5.feature,Test Case 5: Register User,11,Select checkbox 'Receive special offers from our partners!',Receive,Receive special offers from our partners!,0.9
+App1-TestCase5.feature,Test Case 5: Register User,12,"Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number",details,,0.5
+App1-TestCase5.feature,Test Case 5: Register User,13,Click 'Create Account button',Click,Create Account button,0.9
+App1-TestCase5.feature,Test Case 5: Register User,14,Verify that 'ACCOUNT CREATED!' is visible,is,ACCOUNT CREATED!,0.9
+App1-TestCase5.feature,Test Case 5: Register User,15,Click 'Continue' button,Click,Continue,0.9
+App1-TestCase5.feature,Test Case 5: Register User,16,Verify that 'Logged in as username' is visible,is,Logged in as username,0.9
+App1-TestCase5.feature,Test Case 5: Register User,17,Click 'Delete Account' button,Click,Delete Account,0.9
+App1-TestCase5.feature,Test Case 5: Register User,18,Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button,Verify,ACCOUNT DELETED!,0.9
+App1-TestCase5.feature,Test Case 5: Register User,18,Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button,click,Continue,0.9
+App1-TestCase6.feature,Test Case 6: Contact Us Form,1,Launch browser,browser,,0.5
+App1-TestCase6.feature,Test Case 6: Contact Us Form,2,Navigate to url 'http://automationexercise.com',Navigate,http://automationexercise.com,0.9
+App1-TestCase6.feature,Test Case 6: Contact Us Form,3,Verify that home page is visible successfully,is,,0.5
+App1-TestCase6.feature,Test Case 6: Contact Us Form,4,Click on 'Contact Us' button,Click,Contact Us,0.9
+App1-TestCase6.feature,Test Case 6: Contact Us Form,5,Verify 'GET IN TOUCH' is visible,is,GET IN TOUCH,0.9
+App1-TestCase6.feature,Test Case 6: Contact Us Form,6,"Enter name, email, subject and message",Enter,"name, email, subject and message, email, subject and message, subject and message, message",0.8
+App1-TestCase6.feature,Test Case 6: Contact Us Form,7,Upload file,file,,0.5
+App1-TestCase6.feature,Test Case 6: Contact Us Form,8,Click 'Submit' button,Click,Submit,0.9
+App1-TestCase6.feature,Test Case 6: Contact Us Form,9,Click OK button,Click,OK button,0.8
+App1-TestCase6.feature,Test Case 6: Contact Us Form,10,Verify success message 'Success! Your details have been submitted successfully.' is visible,Verify,Success! Your details have been submitted successfully.,0.9
+App1-TestCase6.feature,Test Case 6: Contact Us Form,11,Click 'Home' button and verify that landed to home page successfully,Click,Home,0.7
+App1-TestCase6.feature,Test Case 6: Contact Us Form,11,Click 'Home' button and verify that landed to home page successfully,verify,,0.7
+App2-TestCase1.feature,Test Case 1: Successfully Search for a Movie,1,Launch browser,browser,,0.5
+App2-TestCase1.feature,Test Case 1: Successfully Search for a Movie,2,Navigate to url 'http://localhost:5173/',Navigate,http://localhost:5173/,0.9
+App2-TestCase1.feature,Test Case 1: Successfully Search for a Movie,3,Verify that home page is visible successfully,is,,0.5
+App2-TestCase1.feature,Test Case 1: Successfully Search for a Movie,4,Click on the search input labeled 'Digite o nome do filme',Click,Digite o nome do filme,0.9
+App2-TestCase1.feature,Test Case 1: Successfully Search for a Movie,5,Enter movie name 'Interestellar',Enter,Interestellar,0.9
+App2-TestCase1.feature,Test Case 1: Successfully Search for a Movie,6,Verify that the movie card titled 'Interstellar' is visible,Verify,Interstellar,0.9
+App2-TestCase2.feature,Test Case 6: Successfully Filter Movies by State,1,Launch browser,browser,,0.5
+App2-TestCase2.feature,Test Case 6: Successfully Filter Movies by State,2,Navigate to url 'http://localhost:5173/',Navigate,http://localhost:5173/,0.9
+App2-TestCase2.feature,Test Case 6: Successfully Filter Movies by State,3,Verify that home page is visible successfully,is,,0.5
+App2-TestCase2.feature,Test Case 6: Successfully Filter Movies by State,4,Click on the select dropdown labeled 'Estado',Click,Estado,0.9
+App2-TestCase2.feature,Test Case 6: Successfully Filter Movies by State,5,Select the option 'AM' from the list,Select,AM,0.9
+App2-TestCase2.feature,Test Case 6: Successfully Filter Movies by State,6,Verify that the movie card titled 'Joker' is visible,Verify,Joker,0.9
+App2-TestCase3.feature,Test Case 3: Unsuccessfully Login with Incorrect Credentials,1,Launch browser,browser,,0.5
+App2-TestCase3.feature,Test Case 3: Unsuccessfully Login with Incorrect Credentials,2,Navigate to url 'http://localhost:5173/',Navigate,http://localhost:5173/,0.9
+App2-TestCase3.feature,Test Case 3: Unsuccessfully Login with Incorrect Credentials,3,Verify that home page is visible successfully,is,,0.5
+App2-TestCase3.feature,Test Case 3: Unsuccessfully Login with Incorrect Credentials,4,Click on 'LogIn' button,Click,LogIn,0.9
+App2-TestCase3.feature,Test Case 3: Unsuccessfully Login with Incorrect Credentials,5,Verify 'Log In' is visible,is,Log In,0.9
+App2-TestCase3.feature,Test Case 3: Unsuccessfully Login with Incorrect Credentials,6,Enter incorrect email and password,Enter,"incorrect email and password, password",0.8
+App2-TestCase3.feature,Test Case 3: Unsuccessfully Login with Incorrect Credentials,7,Click 'Log In' button,Click,Log In,0.9
+App2-TestCase3.feature,Test Case 3: Unsuccessfully Login with Incorrect Credentials,8,Verify error message 'User not found!' is visible,Verify,User not found!,0.9
+App2-TestCase4.feature,Test Case 4: Successfully Navigate to Movie Details Page,1,Launch browser,browser,,0.5
+App2-TestCase4.feature,Test Case 4: Successfully Navigate to Movie Details Page,2,Navigate to url 'http://localhost:5173/',Navigate,http://localhost:5173/,0.9
+App2-TestCase4.feature,Test Case 4: Successfully Navigate to Movie Details Page,3,Verify that home page is visible successfully,is,,0.5
+App2-TestCase4.feature,Test Case 4: Successfully Navigate to Movie Details Page,4,Click on the movie card titled 'Barbie',Click,Barbie,0.9
+App2-TestCase4.feature,Test Case 4: Successfully Navigate to Movie Details Page,5,Verify that the movie details page for 'Barbie' is visible,Verify,Barbie,0.9
+App2-TestCase5.feature,Test Case 5: Successfully Register a New User,1,Launch browser,browser,,0.5
+App2-TestCase5.feature,Test Case 5: Successfully Register a New User,2,Navigate to url 'http://localhost:5173/',Navigate,http://localhost:5173/,0.9
+App2-TestCase5.feature,Test Case 5: Successfully Register a New User,3,Verify that home page is visible successfully,is,,0.5
+App2-TestCase5.feature,Test Case 5: Successfully Register a New User,4,Click on 'LogIn' button,Click,LogIn,0.9
+App2-TestCase5.feature,Test Case 5: Successfully Register a New User,5,Verify 'Log In' is visible,is,Log In,0.9
+App2-TestCase5.feature,Test Case 5: Successfully Register a New User,6,Click on 'SignUp' button,Click,SignUp,0.9
+App2-TestCase5.feature,Test Case 5: Successfully Register a New User,7,Verify 'Sign Up' is visible,is,Sign Up,0.9
+App2-TestCase5.feature,Test Case 5: Successfully Register a New User,8,"Enter first name, last name, email, confirm email, password, and confirm password",Enter,"first name, last name, email,",0.8
+App2-TestCase5.feature,Test Case 5: Successfully Register a New User,9,Click 'Sign Up' button,Click,Sign Up,0.9
+App2-TestCase5.feature,Test Case 5: Successfully Register a New User,10,Verify success message 'Registration completed successfully!' is visible,Verify,Registration completed successfully!,0.9
+App2-TestCase6.feature,Test Case 6: Successfully Register a New Movie,1,Launch browser,browser,,0.5
+App2-TestCase6.feature,Test Case 6: Successfully Register a New Movie,2,Navigate to url 'http://localhost:5173/',Navigate,http://localhost:5173/,0.9
+App2-TestCase6.feature,Test Case 6: Successfully Register a New Movie,3,Verify that home page is visible successfully,is,,0.5
+App2-TestCase6.feature,Test Case 6: Successfully Register a New Movie,4,Click on 'CreateMovie' button,Click,CreateMovie,0.9
+App2-TestCase6.feature,Test Case 6: Successfully Register a New Movie,5,"Fill in all required fields: url cartaz, nome, descrição, faixa etária, diretor(a), escritor(a), ator(a), gênero, and data de lançamento",Fill,all required fields,0.8
+App2-TestCase6.feature,Test Case 6: Successfully Register a New Movie,6,Click 'Criar' button,Click,Criar,0.9
+App2-TestCase6.feature,Test Case 6: Successfully Register a New Movie,7,Verify success message 'Film Created Successfully!' is visible,Verify,Film Created Successfully!,0.9

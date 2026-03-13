@@ -15,6 +15,7 @@ Outputs (written to the same directory as the .feature files):
     nlp_accuracy_report.md     — per-method accuracy scores
 """
 
+import csv
 import json
 from pathlib import Path
 from typing import Dict, List, Tuple
@@ -232,32 +233,100 @@ def generate_accuracy_report(stats: Dict[str, Dict],
     print(f'Accuracy report    → {out_path}')
 
 
-# ─── Output: per-method result files ─────────────────────────────────────────
+# ─── Output: per-method result files (CSV) ───────────────────────────────────
 
 def save_per_method_results(all_cases: List[Dict], out_dir: str = '.') -> None:
-    """Write one results_<method_id>.json per method, same format as standalone runs."""
+    """Write one results_<method_id>.csv per method.
+
+    Columns: file, title, step_number, step, action, targets, confidence
+    Compound steps (multiple pairs) produce multiple rows with the same step_number.
+    """
     for method_id, label, _ in METHODS:
-        output = []
-        for tc in all_cases:
-            steps = []
-            for sr in tc['analysed_steps']:
-                a_dict = next((a for a in sr['analyses'] if a['method'] == method_id), None)
-                if a_dict is None:
-                    continue
-                steps.append({
-                    'step':       sr['step'],
-                    'pairs':      a_dict['pairs'],
-                    'confidence': a_dict['confidence'],
-                })
-            output.append({
-                'file':  tc['file'],
-                'title': tc['title'],
-                'urls':  tc['urls'],
-                'steps': steps,
-            })
-        out_path = Path(out_dir) / f'results_{method_id}.json'
-        out_path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding='utf-8')
+        out_path = Path(out_dir) / f'results_{method_id}.csv'
+        with out_path.open('w', newline='', encoding='utf-8') as fh:
+            writer = csv.writer(fh)
+            writer.writerow(['file', 'title', 'step_number', 'step', 'action', 'targets', 'confidence'])
+            for tc in all_cases:
+                for step_num, sr in enumerate(tc['analysed_steps'], 1):
+                    a_dict = next((a for a in sr['analyses'] if a['method'] == method_id), None)
+                    if a_dict is None:
+                        continue
+                    pairs = a_dict['pairs']
+                    if pairs:
+                        for p in pairs:
+                            writer.writerow([
+                                tc['file'], tc['title'], step_num, sr['step'],
+                                p['action'], ', '.join(p['targets']), a_dict['confidence'],
+                            ])
+                    else:
+                        writer.writerow([
+                            tc['file'], tc['title'], step_num, sr['step'],
+                            '', '', a_dict['confidence'],
+                        ])
         print(f'Per-method result  → {out_path}  ({label})')
+
+
+# ─── Output: unified comparison CSV ──────────────────────────────────────────
+
+def generate_combined_csv(all_cases: List[Dict], truth_data: List[Dict],
+                          out_path: str = 'nlp_comparison.csv') -> None:
+    """Write one row per ground-truth pair with ground truth and all 6 method outputs.
+
+    Columns: file, title, step_number, step,
+             gt_action, gt_targets,
+             m1_action, m1_targets, m1_correct,
+             m2_action, m2_targets, m2_correct,
+             ... (same for m3–m6)
+    """
+    truth_index: Dict[Tuple[str, str], List[Dict]] = {}
+    for tc in truth_data:
+        for s in tc['steps']:
+            truth_index[(tc['file'], s['step'])] = s['pairs']
+
+    method_ids = [mid for mid, _, _ in METHODS]
+    method_short = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6']
+
+    header = ['file', 'title', 'step_number', 'step', 'gt_action', 'gt_targets']
+    for short in method_short:
+        header += [f'{short}_action', f'{short}_targets', f'{short}_correct']
+
+    with open(out_path, 'w', newline='', encoding='utf-8') as fh:
+        writer = csv.writer(fh)
+        writer.writerow(header)
+
+        for tc in all_cases:
+            for step_num, sr in enumerate(tc['analysed_steps'], 1):
+                key = (tc['file'], sr['step'])
+                truth_pairs = truth_index.get(key, [])
+
+                # Build per-method extracted pairs lookup
+                method_pairs: Dict[str, List[ActionTarget]] = {}
+                for a_dict in sr['analyses']:
+                    mid = a_dict['method']
+                    method_pairs[mid] = [ActionTarget(p['action'], p['targets']) for p in a_dict['pairs']]
+
+                # One row per ground-truth pair (or one row if no ground truth)
+                if not truth_pairs:
+                    row = [tc['file'], tc['title'], step_num, sr['step'], '', '']
+                    for mid in method_ids:
+                        extracted = method_pairs.get(mid, [])
+                        ep = extracted[0] if extracted else ActionTarget('', [])
+                        row += [ep.action, ', '.join(ep.targets), '']
+                    writer.writerow(row)
+                    continue
+
+                for pair_idx, tp in enumerate(truth_pairs):
+                    gt_action = tp['action']
+                    gt_targets = ', '.join(tp['targets'])
+                    row = [tc['file'], tc['title'], step_num, sr['step'], gt_action, gt_targets]
+                    for mid in method_ids:
+                        extracted = method_pairs.get(mid, [])
+                        ep = extracted[pair_idx] if pair_idx < len(extracted) else ActionTarget('', [])
+                        _, pair_ok = _pair_correct(ep, tp)
+                        row += [ep.action, ', '.join(ep.targets), 'TRUE' if pair_ok else 'FALSE']
+                    writer.writerow(row)
+
+    print(f'Combined comparison → {out_path}')
 
 
 # ─── Main ─────────────────────────────────────────────────────────────────────
@@ -301,6 +370,7 @@ if __name__ == '__main__':
     print('Full results       → nlp_analysis_results.json')
 
     save_per_method_results(results, '.')
+    generate_combined_csv(results, truth_data, 'nlp_comparison.csv')
 
     stats = evaluate(results, truth_data)
     generate_results_table(results, truth_data, 'nlp_results_table.md')
