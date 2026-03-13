@@ -51,12 +51,6 @@ URLs: http://automationexercise.com, https://automationexercise.com/login
 | 6 | Enter incorrect email address and password | `Enter`: email address, password | ✓ `Enter`: incorrect email address, password | ✓ `Enter`: incorrect email address, password | ✗ `—`: — | ✗ `—`: — | ✓ `Enter`: incorrect email address and password, password | ✓ `Enter`: password, incorrect email address |
 | 7 | Click 'login' button | `Click`: login | ✓ `Click`: login | ✓ `Click`: login | ✗ `—`: — | ✗ `—`: — | ✗ `button`: login | ✓ `Click`: login |
 | 8 | Verify error 'Your email or password is incorrect!' is visible | `Verify`: Your email or password is incorrect! | ✓ `Verify`: Your email or password is incorrect! | ✓ `Verify`: Your email or password is incorrect! | ✗ `is`: Your email or password is incorrect! | ✗ `is`: Your email or password is incorrect! | ✗ `is`: Your email or password is incorrect! | ✓ `Verify`: Your email or password is incorrect! |
-| 9 | Launch browser | `Launch`: browser | ✓ `Launch`: browser | ✓ `Launch`: browser | ✗ `—`: — | ✗ `—`: — | ✗ `browser`: — | ✓ `Launch`: browser |
-| 10 | Navigate to url 'http://automationexercise.com' | `Navigate`: http://automationexercise.com | ✓ `Navigate`: http://automationexercise.com | ✓ `Navigate`: http://automationexercise.com | ✗ `url`: http://automationexercise.com | ✗ `url`: http://automationexercise.com | ✓ `Navigate`: http://automationexercise.com | ✓ `Navigate`: http://automationexercise.com |
-| 11 | Click on 'Signup / Login' button | `Click`: Signup / Login | ✓ `Click`: Signup / Login | ✓ `Click`: Signup / Login | ✗ `—`: — | ✗ `—`: — | ✓ `Click`: Signup / Login | ✓ `Click`: Signup / Login |
-| 12 | Enter incorrect email address and password | `Enter`: email address, password | ✓ `Enter`: incorrect email address, password | ✓ `Enter`: incorrect email address, password | ✗ `—`: — | ✗ `—`: — | ✓ `Enter`: incorrect email address and password, password | ✓ `Enter`: password, incorrect email address |
-| 13 | Click 'login' button | `Click`: login | ✓ `Click`: login | ✓ `Click`: login | ✗ `—`: — | ✗ `—`: — | ✗ `button`: login | ✓ `Click`: login |
-| 14 | Verify error 'Your email or password is incorrect!' is visible | `Verify`: Your email or password is incorrect! | ✓ `Verify`: Your email or password is incorrect! | ✓ `Verify`: Your email or password is incorrect! | ✗ `is`: Your email or password is incorrect! | ✗ `is`: Your email or password is incorrect! | ✗ `is`: Your email or password is incorrect! | ✓ `Verify`: Your email or password is incorrect! |
 
 ---
 
